@@ -1,0 +1,5 @@
+http://n12v.com/2-way-data-binding/
+
+http://www.bootply.com/BRR4NnNS0p
+
+bootstrap 3 vertical navbar example

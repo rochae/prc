@@ -1,0 +1,13 @@
+<!-- iron router layout -->
+<template name="layout">
+  <div class="container app-container">
+    <div class="row">
+      <div class="col-lg-2 app-content-span">
+        {{> mainNavbar }}
+      </div>
+      <div class="col-lg-10 app-content-span">
+        {{> yield }}
+      </div>
+    </div>
+  </div>
+</template>

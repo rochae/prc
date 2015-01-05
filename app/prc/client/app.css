@@ -1,0 +1,98 @@
+/* CSS declarations */
+/* -- col block helper. To be deleted -- */
+.card {
+    background-color: papayawhip;
+    border:            1px solid darkgray;
+    margin-bottom:    24px;
+}
+
+.app-container {
+    padding-left:  0px;
+    padding-right: 0px;
+    padding-top:   5px;
+    width:         calc(100vw - (100vw / 24 ));
+}
+
+.app-navbar-title{
+    font-size:    14px;
+    padding-left:  0px;
+}
+
+.app-navbar-button {
+    padding-top:   10px;
+}
+
+.app-col-scroll {
+    padding-left:  15px;
+    padding-right: 15px;
+}
+
+/* -- app media queries -- */
+@media (min-width: 1200px) {
+
+    .app-navbar-brand {
+        font-size:      24px;
+        padding-bottom: 50px;
+    }
+
+    .app-divider {
+        padding-bottom: 20px;
+    }
+
+    .app-content-span {
+       padding-left:  0px;
+    }
+}
+
+@media (min-height: 768px) {
+    .app-col-scroll {
+        max-height: calc(100vh - 200px); /* adjust height */
+        overflow-y: auto;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+/* -- vertical navbar -- */
+@media (min-width: 1200px) {
+    .navbar-collapse {
+        height: auto;
+        border-top: 0;
+        box-shadow: none;
+        max-height: none;
+        padding-left:0;
+        padding-right:0;
+        margin-left: 0;
+    }
+
+    .navbar-collapse.collapse {
+        display: block !important;
+        width: auto !important;
+        padding-bottom: 0;
+        overflow: visible !important;
+    }
+
+    .navbar-collapse.in {
+        overflow-x: visible;
+    }
+
+    .navbar
+    {
+        /* -- max-width: 300px; -- */
+        margin-right: 0;
+        margin-left: 0;
+    }  
+
+    .navbar-nav,
+    .navbar-nav > li,
+    .navbar-left,
+    .navbar-right,
+    .navbar-header
+    {float:none !important;}
+
+    .navbar-right .dropdown-menu {left:0;right:auto;}
+    .navbar-collapse .navbar-nav.navbar-right:last-child {
+        margin-right: 0;
+        margin-left: 0;
+    }
+}

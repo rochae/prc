@@ -1,0 +1,111 @@
+<template name="purchaseOrderDetail">
+  <fieldset {{readonly}}>
+    <div class="row">
+      <div class="form-group col-md-3">
+        <label class="control-label" for="purchaseOrderDate"> Date </label>
+        <input class="form-control" id="purchaseOrderDate" type="date" name="purchaseOrderDate" autofocus/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-md-2">
+        <label class="control-label" for="purchaseOrderNo"> P.O. No. </label>
+        <input class="form-control" id="purchaseOrderNo" type="text" name="purchaseOrderNo" value="{{purchaseOrderNo}}"/>
+      </div>
+      <div class="form-group col-md-1 ">
+        <label class="control-label" for="purchaseOrderRev"> Revision </label>
+        <input class="form-control" id="purchaseOrderRev" type="text" name="purchaseOrderRev" />
+      </div>
+      <div class="form-group col-md-6">
+        <label class="control-label" for="purchaseOrderDesc"> Description </label>
+        <input class="form-control" id="purchaseOrderDesc" type="text" name="purchaseOrderDesc" />
+      </div>
+      <div class="form-group col-md-3">
+        <label class="control-label" for="purchaseOrderType"> Type </label>
+        <select class="form-control" id="purchaseOrderType" name="purchaseOrderType" autofocus>
+          <option> Select</option>
+          <option value="Purchase Order"> Purchase Order </option>
+          <option value="Change Order"> Change Order </option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-md-2">
+        <label class="control-label" for="projectNo"> Project No. </label>
+        <input class="form-control" id="projectNo" type="text" name="projectNo" />
+      </div>
+      <div class="form-group col-md-6">
+        <label class="control-label" for="projectName"> Project Name </label>
+        <input class="form-control" id="projectName" type="text" name="projectName" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label class="control-label" for="vendor"> Vendor </label>
+        <input class="form-control" id="vendor" type="text" name="vendor" />
+      </div>
+      <div class="form-group col-md-6">
+        <label class="control-label" for="buyer"> Buyer </label>
+        <input class="form-control" id="buyer" type="text" name="buyer" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label class="control-label" for="purchaseLocation"> Purchase Location </label>
+        <input class="form-control" id="purchaseLocation" type="text" name="purchaseLocation" />
+      </div>
+      <div class="form-group col-md-6">
+        <label class="control-label" for="pointOfOrigin"> Point of Origin </label>
+        <input class="form-control" id="pointOfOrigin" type="text" name="pointOfOrigin" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <fieldset>
+          <legend><h4 class="text-muted"> Weeks to Deliver </h4></legend>
+          <div class="row">
+            <div class="form-group col-md-4">
+              <label class="control-label" for="buyer"> Quoted </label>
+              <input class="form-control" id="buyer" type="text" name="buyer" />
+            </div>
+            <div class="form-group col-md-4">
+              <label class="control-label" for="buyer"> Actual </label>
+              <input class="form-control" id="buyer" type="text" name="buyer" />
+            </div>
+            <div class="form-group col-md-4">
+              <label class="control-label" for="buyer"> Drawings </label>
+              <input class="form-control" id="buyer" type="text" name="buyer" />
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <div class="col-md-2"> &nbsp; </div>
+      <div class="col-md-2">
+        <fieldset>
+          <legend><h4 class="text-muted"> Market </h4></legend>
+          <div class="radio">
+          <label class="radio">
+            <input type="radio" name="market" value="Domestic"> Domestic
+          </label>
+          <label class="radio">
+            <input type="radio" name="market" value="international"> International
+          </label>
+        </div>
+        </fieldset>
+      </div>
+      <div class="col-md-2">
+        <fieldset>
+          <legend><h4 class="text-muted"> Package </h4></legend>
+          <div class="checkbox">
+            <label class="control-label" for="skid"> 
+              <input class="checkbox" id="skid" type="checkbox" name="skid" /> Skid
+            </label>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+    <fieldset>
+      <legend><h4 class="text-muted"> Equipment </h4></legend>
+    </fieldset>
+  </fieldset>
+</template>
+

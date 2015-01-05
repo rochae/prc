@@ -1,0 +1,72 @@
+<template name="mainNavbar">
+  <nav class="navbar navbar-default" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-main-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a href="/" class="navbar-brand app-navbar-brand">
+      <span class="text-primary text-muted"> ae::prc </span>
+    </a>
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse navbar-main-collapse">
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="/PurchaseOrder"><span class="fa fa-file-text-o fa-lg fa-fw"></span> Purchase Orders </a>
+      </li>
+      <li>
+        <a href="/Equipment"><span class="fa fa-laptop fa-lg fa-fw"></span> Equipment </a>
+      </li>
+      <li>
+        <a href="/Reports"><span class="fa fa-line-chart fa-lg fa-fw"></span> Reports </a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li class="divider app-divider"></li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" href="#" data-toggle="dropdown"> 
+          <span class="fa fa-cog fa-lg fa-fw"></span> Settings <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+          <li role="presentation" class="dropdown-header"> Reference Data </li>
+          <li><a href="/EquipmentCategory"> Equipment Category</a></li>
+          <li><a href="/Vendors"> Vendors </a></li>
+          <li><a href="/Buyers"> Buyers </a></li>
+          <li><a href="/Units"> Units </a></li>
+          <li class="divider"></li>
+          <li role="presentation" class="dropdown-header"> Admin </li>
+          <li><a href="/UsersRoles"> Users and Roles </a></li>
+        </ul>
+      </li>
+    </ul>
+    <!-- alpha -->
+  </div><!-- /.navbar-collapse -->
+</nav>
+</template>
+
+<!-- alpha -->
+<!-- 
+    <form class="navbar-form navbar-left" role="search">
+      <div class="form-group">
+        <input class="form-control" type="text" placeholder="Search">
+      </div>
+      <button class="btn btn-default" type="submit">Submit</button>
+    </form>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#">Link</a></li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" href="#" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Action</a></li>
+          <li><a href="#">Another action</a></li>
+          <li><a href="#">Something else here</a></li>
+          <li><a href="#">Separated link</a></li>
+        </ul>
+      </li>
+    </ul>
+-->
