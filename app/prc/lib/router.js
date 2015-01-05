@@ -1,5 +1,5 @@
 Router.configure({
-    layoutTemplate: 'layout',
+    layoutTemplate: 'appLayout',
     notFoundTemplate: 'notFound',
 
     // : - Uncommend when data subscription is done.
@@ -15,7 +15,11 @@ Router.configure({
 });
 
 Router.route('/', function () {
-  this.render('home');
+  this.render('home', {
+    data: function() {
+        return { appVersion : '0.90' };
+    }
+  });
 });
 
 Router.route('/purchaseOrder', function () {

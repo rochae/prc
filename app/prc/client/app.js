@@ -1,5 +1,6 @@
 // : - application javascripts
-  /* ---
+
+/* ---
 if (Meteor.isClient) {
 
 

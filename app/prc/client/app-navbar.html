@@ -1,4 +1,4 @@
-<template name="mainNavbar">
+<template name="appNavbar">
   <nav class="navbar navbar-default" role="navigation">
   <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header">
@@ -12,35 +12,35 @@
       <span class="text-primary text-muted"> ae::prc </span>
     </a>
   </div>
-
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse navbar-main-collapse">
     <ul class="nav navbar-nav">
       <li>
-        <a href="/PurchaseOrder"><span class="fa fa-file-text-o fa-lg fa-fw"></span> Purchase Orders </a>
+        <a href="/purchaseOrder"><span class="fa fa-file-text-o fa-lg fa-fw"></span> Purchase Orders </a>
       </li>
       <li>
-        <a href="/Equipment"><span class="fa fa-laptop fa-lg fa-fw"></span> Equipment </a>
+        <a href="/equipment"><span class="fa fa-laptop fa-lg fa-fw"></span> Equipment </a>
       </li>
       <li>
-        <a href="/Reports"><span class="fa fa-line-chart fa-lg fa-fw"></span> Reports </a>
+        <a href="/reports"><span class="fa fa-line-chart fa-lg fa-fw"></span> Reports </a>
       </li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li class="divider app-divider"></li>
       <li class="dropdown">
-        <a class="dropdown-toggle" href="#" data-toggle="dropdown"> 
+        <a class="dropdown-toggle" data-toggle="dropdown"> 
           <span class="fa fa-cog fa-lg fa-fw"></span> Settings <b class="caret"></b>
         </a>
         <ul class="dropdown-menu">
           <li role="presentation" class="dropdown-header"> Reference Data </li>
-          <li><a href="/EquipmentCategory"> Equipment Category</a></li>
-          <li><a href="/Vendors"> Vendors </a></li>
-          <li><a href="/Buyers"> Buyers </a></li>
-          <li><a href="/Units"> Units </a></li>
+          <li><a href="/equipmentCategory"> Equipment Category</a></li>
+          <li><a href="/vendors"> Vendors </a></li>
+          <li><a href="/buyers"> Buyers </a></li>
+          <li><a href="/unit"> Units </a></li>
           <li class="divider"></li>
           <li role="presentation" class="dropdown-header"> Admin </li>
-          <li><a href="/UsersRoles"> Users and Roles </a></li>
+          <li><a href="/users"> Users </a></li>
+          <li><a href="/roles"> Roles </a></li>
         </ul>
       </li>
     </ul>
