@@ -9,13 +9,16 @@ if (Meteor.isClient) {
             Session.set('addPurchaseOrder', false);
         },
         
-        'click #purchase-order-save-btn': function(e, t) {
+        'click #purchase-order-save-btn': function(evt, tpl) {
             console.log('click add purchase-order-save-btn');
             //e.preventDefault();
             Session.set('addPurchaseOrder', false);
 
-            description = t.find("input[name=purchaseOrderNo]");
-            console.log(description.value);
+            purchaseOrder = new PurchaseOrder().fromTemplate(tpl);
+            console.log('purchaseOrder: ', purchaseOrder);
+            //description = tpl.find("input[name=purchaseOrderNo]");
+            //console.log('description: ', description.value);
+            PurchaseOrders.insert(purchaseOrder);
         },
 
     });
