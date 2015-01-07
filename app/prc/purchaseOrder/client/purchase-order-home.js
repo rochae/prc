@@ -6,6 +6,7 @@ if (Meteor.isClient) {
     Session.setDefault("selectedPurchaseOrderId", 0);
     Session.setDefault("addPurchaseOrder", false);
     Session.setDefault("editPurchaseOrder", false);
+    Session.setDefault("addPurchaseOrderEquipment", false);
 
     // : - helpers
     Template.purchaseOrderHome.helpers({

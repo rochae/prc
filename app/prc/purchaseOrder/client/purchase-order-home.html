@@ -2,6 +2,11 @@
 
   {{> purchaseOrderNavbar }}
 
+  <div class="row app-col-scroll">
+    {{> yield 'purchaseOrderContent' }}
+  </div>
+
+  <!--
   {{#if addPurchaseOrder }}
     {{> purchaseOrderAdd }}
   {{/if}}
@@ -9,5 +14,6 @@
   <div class="row app-col-scroll">
     {{> purchaseOrderList }}
   </div>
+  -->
 </template>
 

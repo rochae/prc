@@ -1,0 +1,105 @@
+<template name="purchaseOrderEquipment">
+  {{> purchaseOrderEquipmentList }}
+  
+</template>
+
+<template name="purchaseOrderEquipmentAdd">
+  <div class="row">
+    <div class="col-md-12 pull-right">
+      <div class="pull-right btn-toolbar btn-group-sm app-navbar-button" role="group">
+        <a class="btn btn-default" role="button" id="purchase-order-eq-add-btn">
+          <strong class="text-success text-muted"><span class="fa fa-plus fa-fw"></span> Equipment </strong>
+        </a>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="purchaseOrderEquipmentList">
+  <table class="table table-striped table-bordered table-condensed table-hover">
+    <thead class="bg-primary">
+      <tr>
+        <th class="col-md-1"><div class="text-center"> Item </div></th>
+        <th class="col-md-1"><div class="text-center"> Qty. </div></th>
+        <th class="col-md-1"><div class="text-center"> Unit </div></th>
+        <th class="col-md-4"><div class="text-center"> Description </div></th>
+        <th class="col-md-2"><div class="text-center"> WBS No. </div></th>
+        <th class="col-md-2"><div class="text-center"> Unit Price </div></th>
+        <th class="col-md-2"><div class="text-center"> Extended Price </div></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><div class="text-center"> 1 </div></td>
+        <td><div class="text-center"> 1 </div></td>
+        <td><div class="text-center"> Lot </div></td>
+        <td>
+          <div class="row">
+            <div class="col-md-8"> Name/Tag 123 </div>
+            <div class="col-md-4"> Category 123 </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <p> Description 123456789 123456789 123456789 1234567890 
+                  foobar 123456789 123456789 123456789 1234567890
+              </p>
+            </div>
+          </div>
+        </td>
+        <td> WBS-111111 </td>
+        <td><div class="text-right"> 999,999,999.99 </div></td>
+        <td><div class="text-right"> 999,999,999.99 </div></td>
+      </tr>
+      <tr>
+        <td><input class="form-control" type="text" name="item" id="item"/></td>
+        <td><input class="form-control" type="text" name="item" id="item"/></td>
+        <td><input class="form-control" type="text" name="item" id="item"/></td>
+        <td>
+          <div class="row">
+            <div class="col-md-6"><input class="form-control" type="text" name="item" id="item"/></div>
+            <div class="col-md-6"><input class="form-control" type="text" name="item" id="item"/></div>
+          </div>
+          <div class="row" style="padding-top: 10px;">
+            <div class="col-md-12"><textarea class="form-control" rows="3" style="resize: none" name="item" id="item"></textarea></div>
+          </div>
+        </td>
+        <td><input class="form-control" type="text" name="item" id="item"/></td>
+        <td><input class="form-control" type="text" name="item" id="item"/></td>
+        <td>
+          <div class="row">
+            <div class="col-md-12"><input class="form-control" type="text" name="item" id="item"/></div>
+          </div>
+          <div class="row"> &nbsp; </div>
+          <div class="row"> &nbsp; </div>
+          {{> purchaseOrderEquipmentAdd }}
+        </td>
+      </tr>
+
+      {{#each purchaseOrderEquipment }}
+      <tr>
+        <td> {{ item }} </td>
+        <td> {{ qty }} </td>
+        <td> {{ unit }} </td>
+        <td>
+          <div class="row">
+            <div class="col-md-4">
+              {{ nameTag }}
+            </div>
+             <div class="col-md-8">
+              {{ eqCategory }}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              {{ description }}
+            </div>
+          </div>
+        </td>
+        <td> {{ wbsNo }} </td>
+        <td> {{ unitPrice }} </td>
+        <td> {{ extPrice }} </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</template>
