@@ -25,7 +25,7 @@ PurchaseOrder = function() {
                                         tag: "Eq Tag 1", 
                                         category: "Eq Category 1",
                                         description: "Eq Description One 1234567890\n Another Line",
-                                        wbsNo: "WBS-567890", 
+                                        wbsNo: "WBS-56789012", 
                                         unitPrice: "299,000.00", 
                                         extendedPrice: "299,000.00",
                                         documentLink: "c:/temp/_93559181.dwg", 

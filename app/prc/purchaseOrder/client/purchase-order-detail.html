@@ -2,111 +2,97 @@
   <fieldset {{readonly}}>
     <div class="row">
       <div class="form-group col-md-3">
-        <label class="control-label" for="purchaseOrderDate"> Date </label>
-        <input class="form-control"  type="date" name="purchaseOrderDate" id="purchaseOrderDate"
-               value="{{ purchaseOrderDate }}" autofocus/>
+        <label class="control-label" for="projectNo"> Project No. </label>
+        <input class="form-control"  type="text" name="projectNo" id="projectNo" tabindex=1 autofocus/>
       </div>
-    </div>
-    <div class="row">
-      <div class="form-group col-md-2">
+      <div class="form-group col-md-3 col-md-offset-3">
         <label class="control-label" for="purchaseOrderNo"> P.O. No. </label>
-        <input class="form-control"  type="text" name="purchaseOrderNo" id="purchaseOrderNo" 
+        <input class="form-control"  type="text" name="purchaseOrderNo" id="purchaseOrderNo" tabindex=3 
                value="{{ purchaseOrderNo }}"/>
       </div>
-      <div class="form-group col-md-1 ">
-        <label class="control-label" for="purchaseOrderRevision"> Revision </label>
-        <input class="form-control"  type="text" name="purchaseOrderRevision" id="purchaseOrderRevision"/>
+      <div class="form-group col-md-3">
+        <label class="control-label" for="purchaseOrderDate"> Date </label>
+        <input class="form-control"  type="date" name="purchaseOrderDate" id="purchaseOrderDate" tabindex=4 
+               value="{{ purchaseOrderDate }}"/>
+      </div>  
+    </div>
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label class="control-label" for="projectName"> Project Name </label>
+        <input class="form-control"  type="text" name="projectName" id="projectName" tabindex=2/>
       </div>
       <div class="form-group col-md-6">
         <label class="control-label" for="purchaseOrderDescription"> Description </label>
-        <input class="form-control"  type="text" name="purchaseOrderDescription" id="purchaseOrderDescription"/>
+        <input class="form-control"  type="text" name="purchaseOrderDescription" id="purchaseOrderDescription" tabindex=5/>
       </div>
-      <div class="form-group col-md-3">
+    </div>
+    <br>
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label class="control-label" for="vendor"> Vendor </label>
+        <input class="form-control"  type="text" name="vendor" id="vendor" tabindex=6/>
+      </div>
+      <div class="form-group col-md-6">
+        <label class="control-label" for="purchaseLocation"> Purchase Location </label>
+        <input class="form-control"  type="text" name="purchaseLocation" id="purchaseLocation" tabindex=8/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label class="control-label" for="buyer"> Buyer </label>
+        <input class="form-control"  type="text" name="buyer" id="buyer" tabindex=7/>
+      </div>
+      <div class="form-group col-md-6">
+        <label class="control-label" for="pointOfOrigin"> Point of Origin </label>
+        <input class="form-control"  type="text" name="pointOfOrigin" id="pointOfOrigin" tabindex=9/>
+      </div>
+    </div>
+    <div class="row">
+      <div class=col-md-6>
+        <legend><h4 class="text-muted"> Weeks to Deliver </h4></legend>      
+        <div class="row">
+          <div class="form-group col-md-4">
+            <label class="control-label" for="weeksDeliverQuoted"> Quoted </label>
+            <input class="form-control"  type="text" name="weeksDeliverQuoted" id="weeksDeliverQuoted" tabindex=10/>
+          </div>
+          <div class="form-group col-md-4">
+            <label class="control-label" for="weeksDeliverActual"> Actual </label>
+            <input class="form-control"  type="text" name="weeksDeliverActual" id="weeksDeliverActual" tabindex=11/>
+          </div>
+          <div class="form-group col-md-4">
+            <label class="control-label" for="weeksDeliverDrawing"> Drawings </label>
+            <input class="form-control"  type="text" name="weeksDeliverDrawing" id="weeksDeliverDrawing" tabindex=12/>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <legend><h4 class="text-muted"> Market </h4></legend>
+        <div class="radio" tabindex=13>
+        <label class="radio">
+          <input type="radio" name="market" id="marketDomestic" checked="checked" value="Domestic"> Domestic
+        </label>
+        <label class="radio">
+          <input type="radio" name="market" id="marketInternational" value="international"> International
+          </label>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</template>
+
+
+<!--
+
+<div class="row">
+      
+       <div class="form-group col-md-3">
         <label class="control-label" for="purchaseOrderType"> Type </label>
         <select class="form-control" name="purchaseOrderType" id="purchaseOrderType">
           <option value="Purchase Order"> Purchase Order </option>
           <option value="Change Order"> Change Order </option>
         </select>
       </div>
+      
     </div>
-    <div class="row">
-      <div class="form-group col-md-2">
-        <label class="control-label" for="projectNo"> Project No. </label>
-        <input class="form-control"  type="text" name="projectNo" id="projectNo"/>
-      </div>
-      <div class="form-group col-md-6">
-        <label class="control-label" for="projectName"> Project Name </label>
-        <input class="form-control"  type="text" name="projectName" id="projectName"/>
-      </div>
-    </div>
-    <div class="row">
-      <div class="form-group col-md-6">
-        <label class="control-label" for="vendor"> Vendor </label>
-        <input class="form-control"  type="text" name="vendor" id="vendor"/>
-      </div>
-      <div class="form-group col-md-6">
-        <label class="control-label" for="buyer"> Buyer </label>
-        <input class="form-control"  type="text" name="buyer" id="buyer"/>
-      </div>
-    </div>
-    <div class="row">
-      <div class="form-group col-md-6">
-        <label class="control-label" for="purchaseLocation"> Purchase Location </label>
-        <input class="form-control"  type="text" name="purchaseLocation" id="purchaseLocation"/>
-      </div>
-      <div class="form-group col-md-6">
-        <label class="control-label" for="pointOfOrigin"> Point of Origin </label>
-        <input class="form-control"  type="text" name="pointOfOrigin" id="pointOfOrigin"/>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-4">
-        <fieldset>
-          <legend><h4 class="text-muted"> Weeks to Deliver </h4></legend>
-          <div class="row">
-            <div class="form-group col-md-4">
-              <label class="control-label" for="weeksDeliverQuoted"> Quoted </label>
-              <input class="form-control"  type="text" name="weeksDeliverQuoted" id="weeksDeliverQuoted" />
-            </div>
-            <div class="form-group col-md-4">
-              <label class="control-label" for="weeksDeliverActual"> Actual </label>
-              <input class="form-control"  type="text" name="weeksDeliverActual" id="weeksDeliverActual" />
-            </div>
-            <div class="form-group col-md-4">
-              <label class="control-label" for="weeksDeliverDrawing"> Drawings </label>
-              <input class="form-control"  type="text" name="weeksDeliverDrawing" id="weeksDeliverDrawing" />
-            </div>
-          </div>
-        </fieldset>
-      </div>
-      <div class="col-md-2"> &nbsp; </div>
-      <div class="col-md-2">
-        <fieldset>
-          <legend><h4 class="text-muted"> Market </h4></legend>
-          <div class="radio">
-          <label class="radio">
-            <input type="radio" name="market" id="marketDomestic" checked="checked" value="Domestic"> Domestic
-          </label>
-          <label class="radio">
-            <input type="radio" name="market" id="marketInternational" value="international"> International
-          </label>
-        </div>
-        </fieldset>
-      </div>
-      <div class="col-md-2">
-        <fieldset>
-          <legend><h4 class="text-muted"> Package </h4></legend>
-          <div class="checkbox">
-            <label class="control-label" for="skid"> 
-              <input class="checkbox" type="checkbox" name="skid" id="skid"/> Skid
-            </label>
-          </div>
-        </fieldset>
-      </div>
-    </div>
-    <fieldset>
-      <legend><h4 class="text-muted"> Equipment </h4></legend>
-    </fieldset>
-  </fieldset>
-</template>
 
+-->
