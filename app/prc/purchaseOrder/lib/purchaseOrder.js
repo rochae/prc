@@ -1,9 +1,9 @@
  // : - PurchaseOrders Collection
-PurchaseOrders = new Mongo.Collection("purchaseOrders");
+PurchaseOrders = new Mongo.Collection("purchaseOrder");
 
 // : - PurchaseOrder Class
 PurchaseOrder = function() { 
-    this.purchaseOrderNo          = null;
+    this.purchaseOrderNo          = "PO-NO-123";
     this.purchaseOrderRevision    = null;
     this.purchaseOrderDate        = null;
     this.purchaseOrderType        = null;
@@ -19,11 +19,19 @@ PurchaseOrder = function() {
     this.weeksDeliverQuoted       = null;
     this.weeksDeliverActual       = null;
     this.weeksDeliverDrawing      = null;
-    this.equiptment               = [ {item: 1, quantity: 1, unit: "Lot", 
-                                       name: "Equipment 1", tag: "Eq Tag 1", category: "Eq Category 1",
-                                       description: "Eq Description One 1234567890\n Another Line",
-                                       wbsNo: "wbsNo-1234", 
-                                       unitPrice: "299,000.00", extendedPrice: "299,000.00"}, ];
+    this.equipment                = [ { item: 1, 
+                                        quantity: 1, unit: "Lot", 
+                                        name: "Equipment 1", 
+                                        tag: "Eq Tag 1", 
+                                        category: "Eq Category 1",
+                                        description: "Eq Description One 1234567890\n Another Line",
+                                        wbsNo: "WBS-567890", 
+                                        unitPrice: "299,000.00", 
+                                        extendedPrice: "299,000.00",
+                                        documentLink: "c:/temp/_93559181.dwg", 
+                                        attachedDocumentId: "attachedDocument-0001", 
+                                      },
+                                    ];
 
     this.fromTemplate = function(tpl) {
         this.purchaseOrderNo          = tpl.find('#purchaseOrderNo').value;

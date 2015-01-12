@@ -27,6 +27,11 @@
     padding-right: 15px;
 }
 
+.app-table-padding {
+    padding-top: 0px; 
+    padding-bottom: 0px;
+}
+
 /* -- app media queries -- */
 @media (min-width: 1200px) {
 
@@ -44,7 +49,7 @@
     }
 }
 
-@media (min-height: 768px) {
+@media (min-height: 700px) {
     .app-col-scroll {
         max-height: calc(100vh - 200px); /* adjust height */
         overflow-y: auto;
