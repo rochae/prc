@@ -1,15 +1,19 @@
-// : - purchase order home javascripts
+// : - purchase order navbar javascripts
 
 if (Meteor.isClient) {
 
     // : - helpers
     Template.purchaseOrderNavbar.helpers({
+        
         readonly: function() {
-            //console.log('purchaseOrderNavbar - helper -selectedPurchasedOrderStatus');
-            if ((Session.get("addPurchaseOrder")) || (Session.get("editPurchaseOrder"))) {
+            if (Session.get("addPurchaseOrder")) {
                 return "disabled";
             }
             return "";
+        },
+
+        editPurchaseOrder: function() {
+            return ((Session.get('editPurchaseOrder')))
         },
 
     });
@@ -18,6 +22,11 @@ if (Meteor.isClient) {
     Template.purchaseOrderNavbar.events({
         'click #purchase-order-add-btn': function(e, t) {
             //console.log('click btn.btn-add-purchase-order');
+            Session.set('addPurchaseOrder', true);
+        },
+
+        'click #purchase-order-edit-btn': function(e, t) {
+            //console.log('purchase-order-edit-btn');
             Session.set('addPurchaseOrder', true);
         },
         

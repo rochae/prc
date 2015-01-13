@@ -5,13 +5,13 @@
         <div class="row">
           <div class="form-group col-md-6">
             <label class="control-label" for="projectNo"> Project No. </label>
-            <input class="form-control"  type="text" name="projectNo" id="projectNo" autofocus/>
+            <input class="form-control"  type="text" name="projectNo" id="projectNo" value="{{ projectNo }}" autofocus/>
           </div>
         </div>
         <div class="row">
           <div class="form-group col-md-12">
             <label class="control-label" for="projectName"> Project Name </label>
-            <input class="form-control"  type="text" name="projectName" id="projectName"/>
+            <input class="form-control"  type="text" name="projectName" id="projectName" value="{{ projectName }}"/>
           </div>
         </div>
       </div>
@@ -19,19 +19,17 @@
         <div class="row">
           <div class="form-group col-md-6">
             <label class="control-label" for="purchaseOrderNo"> P.O. No. </label>
-            <input class="form-control"  type="text" name="purchaseOrderNo" id="purchaseOrderNo" 
-                   value="{{ purchaseOrderNo }}"/>
+            <input class="form-control"  type="text" name="purchaseOrderNo" id="purchaseOrderNo" value="{{ purchaseOrderNo }}"/>
           </div>
           <div class="form-group col-md-5 pull-right">
             <label class="control-label" for="purchaseOrderDate"> Date </label>
-            <input class="form-control"  type="date" name="purchaseOrderDate" id="purchaseOrderDate"
-                   value="{{ purchaseOrderDate }}"/>
+            <input class="form-control"  type="date" name="purchaseOrderDate" id="purchaseOrderDate" value="{{ purchaseOrderDate }}"/>
           </div>  
         </div>
         <div class="row">
           <div class="form-group col-md-12">
             <label class="control-label" for="purchaseOrderDescription"> Description </label>
-            <input class="form-control"  type="text" name="purchaseOrderDescription" id="purchaseOrderDescription"/>
+            <input class="form-control"  type="text" name="purchaseOrderDescription" id="purchaseOrderDescription" value="{{ purchaseOrderDescription }}"/>
           </div>
         </div>
       </div>
@@ -41,13 +39,13 @@
         <div class="row">
           <div class="form-group col-md-12">
             <label class="control-label" for="vendor"> Vendor </label>
-            <input class="form-control"  type="text" name="vendor" id="vendor"/>
+            <input class="form-control"  type="text" name="vendor" id="vendor"  value="{{ projectName }}"/>
           </div>
         </div>
         <div class="row">
           <div class="form-group col-md-12">
             <label class="control-label" for="buyer"> Buyer </label>
-            <input class="form-control"  type="text" name="buyer" id="buyer"/>
+            <input class="form-control"  type="text" name="buyer" id="buyer"  value="{{ projectName }}"/>
           </div>
         </div>
       </div>
@@ -55,13 +53,13 @@
         <div class="row">
           <div class="form-group col-md-12">
             <label class="control-label" for="purchaseLocation"> Purchase Location </label>
-            <input class="form-control"  type="text" name="purchaseLocation" id="purchaseLocation"/>
+            <input class="form-control"  type="text" name="purchaseLocation" id="purchaseLocation"  value="{{ projectName }}"/>
           </div>
         </div>
         <div class="row">
           <div class="form-group col-md-12">
             <label class="control-label" for="pointOfOrigin"> Point of Origin </label>
-            <input class="form-control"  type="text" name="pointOfOrigin" id="pointOfOrigin"/>
+            <input class="form-control"  type="text" name="pointOfOrigin" id="pointOfOrigin"  value="{{ projectName }}"/>
           </div>
         </div>
       </div>
@@ -72,15 +70,15 @@
         <div class="row">      
           <div class="form-group col-md-4">
             <label class="control-label" for="weeksDeliverQuoted"> Quoted </label>
-            <input class="form-control"  type="text" name="weeksDeliverQuoted" id="weeksDeliverQuoted"/>
+            <input class="form-control"  type="text" name="weeksDeliverQuoted" id="weeksDeliverQuoted"  value="{{ projectName }}"/>
           </div>
           <div class="form-group col-md-4">
             <label class="control-label" for="weeksDeliverActual"> Actual </label>
-            <input class="form-control"  type="text" name="weeksDeliverActual" id="weeksDeliverActual"/>
+            <input class="form-control"  type="text" name="weeksDeliverActual" id="weeksDeliverActual"  value="{{ projectName }}"/>
           </div>
           <div class="form-group col-md-4">
             <label class="control-label" for="weeksDeliverDrawing"> Drawings </label>
-            <input class="form-control"  type="text" name="weeksDeliverDrawing" id="weeksDeliverDrawing"/>
+            <input class="form-control"  type="text" name="weeksDeliverDrawing" id="weeksDeliverDrawing"  value="{{ projectName }}"/>
           </div>
         </div>
       </div>
@@ -88,10 +86,10 @@
         <legend><h4 class="text-muted"> Market </h4></legend>
         <div class="radio">
           <label class="radio">
-            <input type="radio" name="market" id="marketDomestic" checked="checked" value="Domestic"> Domestic
+            <input type="radio" name="market" id="marketDomestic" checked="{{ checkedMarketDomestic }}" value="Domestic"> Domestic
           </label>
           <label class="radio">
-            <input type="radio" name="market" id="marketInternational" value="international"> International
+            <input type="radio" name="market" id="marketInternational" checked="{{ checkedMarketInternational }}" value="International"> International
           </label>
         </div>
       </div>

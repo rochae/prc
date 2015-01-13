@@ -3,15 +3,15 @@
     <thead class="bg-primary">
       <tr>
         <th class="col-md-1"><div class="text-center"> Date </div></th>
-        <th class="col-md-3"><div class="text-center"> Purchae Order No. </div></th>
-        <th class="col-md-3"><div class="text-center"> Description </div></th>
+        <th class="col-md-2"><div class="text-center"> Purchae Order No. </div></th>
+        <th class="col-md-4"><div class="text-center"> Description </div></th>
         <th class="col-md-2"><div class="text-center"> Project No. </div></th>
         <th class="col-md-3"><div class="text-center"> Project Name </div></th>
       </tr>
     </thead>
     <tbody>
       {{#each purchaseOrder }}
-      <tr>
+      <tr class="purchaseOrder">
         <td> {{ purchaseOrderDate }} </td>
         <td> {{ purchaseOrderNo }} </td>
         <td> {{ purchaseOrderDescription }} </td>

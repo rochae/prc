@@ -9,11 +9,13 @@
       <h4 class="text-muted"> Equipment </h4>
     </div>
     <div class="col-md-6 pull-right">
-      <div class="pull-right btn-toolbar btn-group-sm" role="group">
-        <a class="btn btn-default" role="button" id="purchase-order-eq-add-btn">
-          <strong class="text-success text-muted"><span class="fa fa-plus fa-fw"></span> Equipment </strong>
-        </a>
-      </div>
+      {{#if editPurchaseOrder }}
+        <div class="pull-right btn-toolbar btn-group-sm" role="group">
+          <a class="btn btn-default {{readonly}}" role="button" id="purchase-order-eq-add-btn">
+            <strong class="text-success text-muted"><span class="fa fa-plus fa-fw"></span> Equipment </strong>
+          </a>
+        </div>
+      {{/if}}
     </div>
     <div class="col-md-12">
       <legend></legend>
