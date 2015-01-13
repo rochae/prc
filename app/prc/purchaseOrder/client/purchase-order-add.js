@@ -2,15 +2,6 @@
 
 if (Meteor.isClient) {
 
-    // : - helpers
-    Template.purchaseOrderAdd.helpers({
-
-        addPurchaseOrderEquipment: function() {
-            return (Session.get("addPurchaseOrderEquipment"));
-        },
-        
-    });
-
     // : - events
     Template.purchaseOrderAdd.events({
         'click #purchase-order-cancel-btn': function(e, t) {

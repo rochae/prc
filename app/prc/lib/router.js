@@ -32,7 +32,9 @@ Router.route('/purchaseOrder', function () {
 
   this.render('purchaseOrderHome');
 
-  this.render('purchaseOrderList', {to: 'purchaseOrderContent'});
+  this.render('purchaseOrderList', {
+    to: 'purchaseOrderContent'
+  });
 
 });
 
@@ -42,7 +44,7 @@ Router.route('/purchaseOrder/add', function () {
 
   this.render('purchaseOrderHome', {
     data: function() {
-      return {navbarHeader: ' / Add'};
+      return {navbarHeader: '/ Add'};
     }
   });
 
@@ -61,13 +63,15 @@ Router.route('/purchaseOrder/edit/:_id', function () {
 
   this.render('purchaseOrderHome', {
     data: function() {
-      return {navbarHeader: ' / Edit'};
+      return {navbarHeader: '/ Edit'};
     }
   });
 
   this.render('purchaseOrderEdit', {
     to: 'purchaseOrderContent',
     data: function() {
+      console.log('route - purchaseOrderEdit ', this.params._id)
+      console.log('route - purchaseOrderEdit ', PurchaseOrders.findOne({_id: this.params._id}))
       return PurchaseOrders.findOne({_id: this.params._id});
     }
   });

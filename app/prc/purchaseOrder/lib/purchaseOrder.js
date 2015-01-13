@@ -50,8 +50,12 @@ PurchaseOrder = function() {
         this.projectNo                = tpl.find('#projectNo').value;
         this.projectName              = tpl.find('#projectName').value;
         this.vendor                   = tpl.find('#vendor').value;
+        this.buyer                    = tpl.find('#buyer').value;
         this.purchaseLocation         = tpl.find('#purchaseLocation').value;
         this.pointOfOrigin            = tpl.find('#pointOfOrigin').value;
+        this.weeksDeliverQuoted       = tpl.find('#weeksDeliverQuoted').value;
+        this.weeksDeliverActual       = tpl.find('#weeksDeliverActual').value;
+        this.weeksDeliverDrawing      = tpl.find('#weeksDeliverDrawing').value;
         marketDomestic                = tpl.find('#marketDomestic')
         if (marketDomestic.checked) {
             this.market = marketDomestic.value;
@@ -59,10 +63,6 @@ PurchaseOrder = function() {
         else {
             this.market = tpl.find('#marketInternational').value;
         }
-        this.buyer                    = tpl.find('#buyer').value;
-        this.weeksDeliverQuoted       = tpl.find('#weeksDeliverQuoted').value;
-        this.weeksDeliverActual       = tpl.find('#weeksDeliverActual').value;
-        this.weeksDeliverDrawing      = tpl.find('#weeksDeliverDrawing').value;
         return this;
     }
 };

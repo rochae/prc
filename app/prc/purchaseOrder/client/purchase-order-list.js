@@ -5,7 +5,7 @@ if (Meteor.isClient) {
     // : - helpers
     Template.purchaseOrderList.helpers({
 
-        purchaseOrder: function() {
+        purchaseOrders: function() {
             //console.log('purchaseOrderNavbar - helper -selectedPurchasedOrderStatus');
             return PurchaseOrders.find();
         },

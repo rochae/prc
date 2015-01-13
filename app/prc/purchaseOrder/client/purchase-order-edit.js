@@ -30,10 +30,10 @@ if (Meteor.isClient) {
             Session.set('addPurchaseOrder', false);
 
             purchaseOrder = new PurchaseOrder().fromTemplate(tpl);
-            console.log('purchaseOrderEdit - purchaseOrder: ', purchaseOrder);
-            console.log('Updated PurchaseOrder: ', purchaseOrder);
+            console.log('purchaseOrderEdit - purchaseOrder: ', this);
 
-            PurchaseOrders.update(this._id, purchaseOrder);
+            PurchaseOrders.update({_id: this._id}, purchaseOrder);
+            console.log(PurchaseOrders.findOne({_id: this._id}));
         },
 
         'click #purchase-order-eq-add-btn': function(evt, tpl) {
