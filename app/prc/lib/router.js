@@ -44,7 +44,7 @@ Router.route('/purchaseOrder/add', function () {
 
   this.render('purchaseOrderHome', {
     data: function() {
-      return {navbarHeader: '/ Add'};
+      return {navbarHeader: 'Add'};
     }
   });
 
@@ -63,7 +63,7 @@ Router.route('/purchaseOrder/edit/:_id', function () {
 
   this.render('purchaseOrderHome', {
     data: function() {
-      return {navbarHeader: '/ Edit'};
+      return {navbarHeader: 'Edit'};
     }
   });
 

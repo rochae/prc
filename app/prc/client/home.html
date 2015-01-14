@@ -1,6 +1,11 @@
 <template name="home">
   {{> homeNavbar }}
-  {{> homeContent }}
+
+  <div class="row">
+    <div class="col-md-12">
+      {{> homeContent }}
+    </div>
+  </div>
 </template>
 
 <template name="homeNavbar">
@@ -14,11 +19,7 @@
 </template>
 
 <template name="homeContent">
-  <div class="row">
-    <div class="col-md-12">
-      <h3 class="text-primary text-muted text-center"> Procurement Record Center </h3>
-      <h4 class="text-muted text-center"> Audubon Engineering </h4>
-      <h5 class="text-muted text-center"> Version {{appVersion}} </h5>
-    </div>
-  </div>
+  <h3 class="text-primary text-muted text-center"> Procurement Record Center </h3>
+  <h4 class="text-muted text-center"> Audubon Engineering </h4>
+  <h5 class="text-muted text-center"> Version {{appVersion}} </h5>
 </template>

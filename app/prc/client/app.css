@@ -13,41 +13,33 @@
     width:         calc(100vw - (100vw / 24 ));
 }
 
-.app-navbar-header {
-    padding-left: 20px;
+.app-content-scroll {
+    padding-left:  15px;
+    padding-right: 15px;
 }
 
 .app-navbar-title {
     font-size:    14px;
-    padding-left:  0px;
 }
 
 .app-navbar-button {
     padding-top:   10px;
-    padding-right: 20px;
-}
-
-.app-col-scroll {
-    padding-left:  5px;
-    padding-right: 5px;
+    padding-right: 10px;
 }
 
 /* -- app media queries -- */
 @media (min-width: 1200px) {
+    
+    .app-content-span {
+       padding-left:  10px;
+       padding-right: 10px;
+       
+    }
 
     .app-navbar-brand {
         font-size:      24px;
         padding-top:    20px;
         padding-bottom: 40px;
-    }
-
-    .app-divider {
-        padding-bottom: 20px;
-    }
-
-    .app-content-span {
-       padding-left:  5px;
-       padding-right: 5px;
     }
 }
 
