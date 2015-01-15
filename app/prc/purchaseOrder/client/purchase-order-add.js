@@ -13,17 +13,12 @@ if (Meteor.isClient) {
             console.log('purchaseOrderAdd - click add purchase-order-save-btn');
             //e.preventDefault();
             Session.set('addPurchaseOrder', false);
-
-            purchaseOrder = new PurchaseOrder().fromTemplate(tpl);
+            
             //console.log('purchaseOrderAdd -  purchaseOrder: ', purchaseOrder);
             //description = tpl.find("input[name=purchaseOrderNo]");
             //console.log('description: ', description.value);
+            purchaseOrder = new PurchaseOrder().fromTemplate(tpl);
             PurchaseOrders.insert(purchaseOrder);
-        },
-
-        'click #purchase-order-eq-add-btn': function(e, t) {
-            console.log('purchaseOrderAdd - click purchaseOrderAdd purchase-order-eq-add-btn');
-            Session.set('addPurchaseOrderEquipment', true);
         },
 
     });

@@ -6,10 +6,11 @@ if (Meteor.isClient) {
     Template.purchaseOrderCancelSave.helpers({
         
         cancelSaveLink: function() {
-            if (Session.get('editPurchaseOrder')) {
-                return '';
+            //console.log('purchaseOrderCancelSave - cancelSaveLink: ', Session.get('editPurchaseOrder'));
+            //console.log('purchaseOrderCancelSave - cancelSaveLink: ', this._id);
+            if (!Session.get('editPurchaseOrder')) {
+                return '/purchaseOrder';
             }
-            return '/purchaseOrder';
         },
 
     });

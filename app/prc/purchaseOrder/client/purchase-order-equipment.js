@@ -4,7 +4,7 @@ if (Meteor.isClient) {
 
     // : - helpers
     Template.purchaseOrderEquipmentNavbar.helpers({
-        editPurchaseOrder: function() {
+        addEditPurchaseOrder: function() {
             //console.log('purchaseOrderNavbar - helper -selectedPurchasedOrderStatus');
             return Session.get('addPurchaseOrder');
         },

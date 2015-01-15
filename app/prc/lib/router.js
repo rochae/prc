@@ -70,8 +70,8 @@ Router.route('/purchaseOrder/edit/:_id', function () {
   this.render('purchaseOrderEdit', {
     to: 'purchaseOrderContent',
     data: function() {
-      console.log('route - purchaseOrderEdit ', this.params._id)
-      console.log('route - purchaseOrderEdit ', PurchaseOrders.findOne({_id: this.params._id}))
+      //console.log('route - purchaseOrderEdit ', this.params._id)
+      //console.log('route - purchaseOrderEdit ', PurchaseOrders.findOne({_id: this.params._id}))
       return PurchaseOrders.findOne({_id: this.params._id});
     }
   });

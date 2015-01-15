@@ -5,13 +5,8 @@ if (Meteor.isClient) {
     // : - helpers
     Template.purchaseOrderDetail.helpers({
 
-        addEditPurchaseOrder: function() {
-            //console.log('purchaseOrderNavbar - helper -selectedPurchasedOrderStatus');
-            return ((Session.get("addPurchaseOrder")) || (Session.get("editPurchaseOrder")));
-        },
-
         readonly: function() {
-            //console.log('purchaseOrderNavbar - helper -selectedPurchasedOrderStatus');
+            console.log('purchaseOrderDetail - readonly');
             if (Session.get("addPurchaseOrder")){
                 return "";
             }
@@ -19,19 +14,24 @@ if (Meteor.isClient) {
         },
 
         checkedMarketDomestic: function() {
-            //console.log( 'checkedMarketDomestic: ', this.market );
+            console.log('purchaseOrderDetail - checkedMarketDomestic');
             if ( this.market === 'Domestic') {
                 return 'checked';
             }
         },
 
         checkedMarketInternational: function() {
-            //console.log( 'checkedMarketInternational: ', this.market );
+            console.log('purchaseOrderDetail - checkedMarketInternational');
             if ( this.market === 'International') {
                 return 'checked';
             }
         },
 
     });
+
+    Template.purchaseOrderDetail.rendered = function() {
+        console.log('purchaseOrderDetail.rendered - this.$(input)[0]:', this.$('input')[0])
+        this.$('input')[0].focus() 
+    };
 
 } //: - Meteor.isClient

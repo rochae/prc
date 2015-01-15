@@ -6,6 +6,7 @@ if (Meteor.isClient) {
     Template.purchaseOrderNavbar.helpers({
         
         readonly: function() {
+            console.log('purchaseOrderNavbar - readonly');
             if (Session.get("addPurchaseOrder")) {
                 return "disabled";
             }
@@ -13,6 +14,7 @@ if (Meteor.isClient) {
         },
 
         editPurchaseOrder: function() {
+            console.log('purchaseOrderNavbar - editPurchaseOrder');
             return ((Session.get('editPurchaseOrder')))
         },
 
@@ -20,14 +22,16 @@ if (Meteor.isClient) {
 
     // : - events
     Template.purchaseOrderNavbar.events({
-        'click #purchase-order-add-btn': function(e, t) {
-            //console.log('click btn.btn-add-purchase-order');
+        'click #purchase-order-add-btn': function(evt, tpl) {
+            console.log('purchaseOrderNavbar - purchase-order-add-btn');
+            //console.log('purchaseOrderNavbar - purchase-order-add-btn - evt.currentTarget.children[0]: ', evt.currentTarget.children[0]);
             Session.set('addPurchaseOrder', true);
         },
 
-        'click #purchase-order-edit-btn': function(e, t) {
-            //console.log('purchase-order-edit-btn');
+        'click #purchase-order-edit-btn': function(evt, tpl) {
+            console.log('purchaseOrderNavbar - purchase-order-edit-btn');
             Session.set('addPurchaseOrder', true);
+
         },
         
     });
