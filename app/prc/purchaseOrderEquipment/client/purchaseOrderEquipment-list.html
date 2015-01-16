@@ -1,0 +1,52 @@
+<template name="purchaseOrderEquipmentList">
+  <table class="table table-striped table-bordered table-condensed table-hover">
+    <thead class="bg-primary">
+      <tr>
+        <th class="colspan-1"><div class="text-center"> Item </div></th>
+        <th class="colspan-1"><div class="text-center"> Qty. </div></th>
+        <th class="colspan-1"><div class="text-center"> Unit </div></th>
+        <th class="colspan-6"><div class="text-center"> Description </div></th>
+        <th class="colspan-1"><div class="text-center"> WBS No. </div></th>
+        <th class="colspan-1"><div class="text-center"> Unit Price </div></th>
+        <th class="colspan-1"><div class="text-center"> Extended Price </div></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each equipment }}
+      <tr>
+        <td> {{ item }} </td>
+        <td> {{ quantity }} </td>
+        <td> {{ unit }} </td>
+        <td>
+          
+          <div class="row">
+            <div class="col-md-12"> {{ name }} </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5"> {{ tag }} </div>
+            <div class="col-md-7"> {{ Category }} </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <pre style="border:none;"> {{ description }} </pre>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+             {{ documentLink }}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              {{ attachedDocument }}
+            </div>
+          </div>
+        </td>
+        <td> {{ wbsNo }} </td>
+        <td><div class="text-right">{{ unitPrice }} </div></td>
+        <td><div class="text-right"> {{ extendedPrice }} </div></td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</template>

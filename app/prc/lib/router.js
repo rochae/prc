@@ -17,6 +17,7 @@ Router.configure({
 Router.route('/', function () {
   Session.set('addPurchaseOrder',  false);
   Session.set('editPurchaseOrder', false);
+  Session.set('addPurchaseOrderEquipment', false);
 
   this.render('home', {
     data: function() {
@@ -29,6 +30,7 @@ Router.route('/', function () {
 Router.route('/purchaseOrder', function () {
   Session.set('addPurchaseOrder',  false);
   Session.set('editPurchaseOrder', false);
+  Session.set('addPurchaseOrderEquipment', false);
 
   this.render('purchaseOrderHome');
 
@@ -37,6 +39,7 @@ Router.route('/purchaseOrder', function () {
 Router.route('/purchaseOrder/add', function () {
   Session.set('addPurchaseOrder',  true);
   Session.set('editPurchaseOrder', false);
+  Session.set('addPurchaseOrderEquipment', false);
 
   this.render('purchaseOrderAdd', {
     data: function() {
@@ -49,6 +52,7 @@ Router.route('/purchaseOrder/add', function () {
 Router.route('/purchaseOrder/edit/:_id', function () {
   Session.set('addPurchaseOrder',  false);
   Session.set('editPurchaseOrder', true);
+  Session.set('addPurchaseOrderEquipment', false);
 
   this.render('purchaseOrderEdit', {
     data: function() {
