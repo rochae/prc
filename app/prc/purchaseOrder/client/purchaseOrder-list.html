@@ -1,0 +1,24 @@
+<template name="purchaseOrderList">
+  <table class="table table-striped table-bordered table-condensed table-hover">
+    <thead class="bg-primary">
+      <tr>
+        <th class="col-span-1"><div class="text-center"> Date </div></th>
+        <th class="col-span-1"><div class="text-center"> Purchae Order No. </div></th>
+        <th class="col-span-5"><div class="text-center"> Description </div></th>
+        <th class="col-span-1"><div class="text-center"> Project No. </div></th>
+        <th class="col-span-4"><div class="text-center"> Project Name </div></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each purchaseOrder }}
+      <tr class="purchaseOrder">
+        <td> {{ purchaseOrderDate }} </td>
+        <td> {{ purchaseOrderNo }} </td>
+        <td> {{ purchaseOrderDescription }} </td>
+        <td> {{ projectNo }} </td>
+        <td> {{ projectName }} </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</template>

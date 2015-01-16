@@ -1,0 +1,1 @@
+PurchaseOrderEquipmentCollection = new Mongo.Collection("purchaseOrderEquipment");
