@@ -1,18 +1,15 @@
 <template name="purchaseOrderAdd">
+
+  {{> purchaseOrderNavbar navbarHeader="Add" }}
+
+
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 app-content-scroll" >
+      {{> purchaseOrderDetail }}
+      {{> purchaseOrderEquipment }}
+      {{> purchaseOrderCancelSave }}
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-12">
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-    </div>
-  </div>
-  {{> purchaseOrderDetail }}
-  {{> purchaseOrderEquipment }}
-  {{> purchaseOrderCancelSave }}
+  
 </template>
 

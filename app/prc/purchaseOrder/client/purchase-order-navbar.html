@@ -6,22 +6,24 @@
           <a href="/purchaseOrder" class="navbar-brand app-navbar-title">
             <span class="fa fa-file-text-o fa-lg fa-fw"></span> Purchase Orders 
             {{#if navbarHeader }} 
-              <span class="fa fa-angle-right fa-lg fa-fw"></span> {{navbarHeader}}
+              <span class="fa fa-angle-right fa-lg fa-fw"></span> {{ navbarHeader }}
             {{/if}}
           </a>
         </div>
       </div>
       <div class="col-md-4 col-xs-4">
+      <fieldset {{readonly}}>
         <div class="btn-toolbar btn-group-sm pull-right app-navbar-button" role="group">
-          <a href="/PurchaseOrder/add" class="btn btn-default {{readonly}}" role="button" id="purchase-order-add-btn">
+          <a href="/PurchaseOrder/add" class="btn btn-default" role="button" id="purchase-order-add-btn">
             <strong class="text-primary"><span class="fa fa-plus fa-lg" aria-hidden="true"></span></strong>
           </a>
           {{#if editPurchaseOrder }}
-            <a class="btn btn-default {{readonly}}" role="button" id="purchase-order-edit-btn">
+            <a class="btn btn-default" role="button" id="purchase-order-edit-btn">
               <strong class="text-primary"><span class="fa fa-edit fa-lg" aria-hidden="true"></span> Edit </strong>
             </a>
           {{/if}}
         </div>
+      </fieldset>
       </div>
     </div>
   </nav>

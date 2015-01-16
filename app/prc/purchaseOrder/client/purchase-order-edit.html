@@ -1,8 +1,16 @@
 <template name="purchaseOrderEdit">
-  {{> purchaseOrderDetail }}
-  {{> purchaseOrderEquipment }}
-  {{#if addEditPurchaseOrder }}
-    {{> purchaseOrderCancelSave }}
-  {{/if}}
+    
+  {{> purchaseOrderNavbar navbarHeader="Edit" }}
+
+  <div class="row">
+    <div class="col-md-12 app-content-scroll" >
+      {{> purchaseOrderDetail }}
+      {{> purchaseOrderEquipment }}
+      {{#if addEditPurchaseOrder }}
+        {{> purchaseOrderCancelSave }}
+      {{/if}}
+    </div>
+  </div>
+  
 </template>
   

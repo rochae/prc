@@ -15,7 +15,7 @@ Router.configure({
 });
 
 Router.route('/', function () {
-  Session.set('addPurchaseOrder', false);
+  Session.set('addPurchaseOrder',  false);
   Session.set('editPurchaseOrder', false);
 
   this.render('home', {
@@ -27,29 +27,18 @@ Router.route('/', function () {
 });
 
 Router.route('/purchaseOrder', function () {
-  Session.set('addPurchaseOrder', false);
+  Session.set('addPurchaseOrder',  false);
   Session.set('editPurchaseOrder', false);
 
   this.render('purchaseOrderHome');
 
-  this.render('purchaseOrderList', {
-    to: 'purchaseOrderContent'
-  });
-
 });
 
 Router.route('/purchaseOrder/add', function () {
-  Session.set('addPurchaseOrder', true);
+  Session.set('addPurchaseOrder',  true);
   Session.set('editPurchaseOrder', false);
 
-  this.render('purchaseOrderHome', {
-    data: function() {
-      return {navbarHeader: 'Add'};
-    }
-  });
-
   this.render('purchaseOrderAdd', {
-    to: 'purchaseOrderContent',
     data: function() {
       return new PurchaseOrder();
     }
@@ -58,20 +47,11 @@ Router.route('/purchaseOrder/add', function () {
 });
 
 Router.route('/purchaseOrder/edit/:_id', function () {
-  Session.set('addPurchaseOrder', false);
+  Session.set('addPurchaseOrder',  false);
   Session.set('editPurchaseOrder', true);
 
-  this.render('purchaseOrderHome', {
-    data: function() {
-      return {navbarHeader: 'Edit'};
-    }
-  });
-
   this.render('purchaseOrderEdit', {
-    to: 'purchaseOrderContent',
     data: function() {
-      //console.log('route - purchaseOrderEdit ', this.params._id)
-      //console.log('route - purchaseOrderEdit ', PurchaseOrders.findOne({_id: this.params._id}))
       return PurchaseOrders.findOne({_id: this.params._id});
     }
   });
