@@ -1,4 +1,4 @@
-EquipmentCategories = new Mongo.Collection("equipmentCategory");
+EquipmentCategoryCollection = new Mongo.Collection("equipmentCategory");
 
 // : - EquipmentCategory Class
 EquipmentCategory = function() { 

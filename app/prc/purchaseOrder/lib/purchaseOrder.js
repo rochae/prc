@@ -1,5 +1,5 @@
  // : - PurchaseOrders Collection
-PurchaseOrders = new Mongo.Collection("purchaseOrder");
+PurchaseOrderCollection = new Mongo.Collection("purchaseOrder");
 
 // : - PurchaseOrder Class
 PurchaseOrder = function() { 

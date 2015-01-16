@@ -3,7 +3,7 @@ if (Meteor.isServer) {
     Meteor.startup(function () {
     // code to run on server at startup
 
-    if ( ! (EquipmentCategories.find().count()) ) {
+    if ( ! (EquipmentCategoryCollection.find().count()) ) {
         console.log("Adding EquipmentCategory Reference Data");
         EquipmentCategoryReferenceData = [
             { name : 'Air Cooler' },

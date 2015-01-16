@@ -52,7 +52,7 @@ Router.route('/purchaseOrder/edit/:_id', function () {
 
   this.render('purchaseOrderEdit', {
     data: function() {
-      return PurchaseOrders.findOne({_id: this.params._id});
+      return PurchaseOrderCollection.findOne({_id: this.params._id});
     }
   });
 
