@@ -1,14 +1,12 @@
 PurchaseOrderEquipmentCollection = new Mongo.Collection("purchaseOrderEquipment");
 
 PurchaseOrderEquipment = function() {
-    this.equipmentId   = null;
     this.item          = 10;
-    this.quantity      = null;
-    this.unit          = null;
-    this.equipment     = null;
-    this.wbsNo         = null;
-    this.priceUnit     = null;
-    this.priceExtended = null;
-    this.equipment     = [];
-
+    this.quantity      = 11;
+    this.unit          = "Lot";
+    this.equipmentTag  = "tag-10";
+    this.equipment     = new Equipment();
+    this.wbsNo         = "wbs-10";
+    this.priceUnit     = 1000;
+    this.priceExtended = 1100;
 }

@@ -12,9 +12,11 @@
     </div>
     <div class="form-group col-md-4">
       <label class="control-label" for="unit"> Unit </label>
-      <select class="form-control" name="unit" id="unit">
-        <option value="Each">Each</option>
-        <option value="Lot">Lot</option>
+      <select class="form-control" name="unit" id="unit" value="{{ unit }}">
+        <option value="" disabled>Select Unit</option>
+        {{#each unitItem }}
+          <option value="{{ unitName }}" {{ selectedUnit ../unit }}> {{ unitName }} </option>
+        {{/each}}
       </select>
     </div>
   </div> 
@@ -22,20 +24,21 @@
     <div class="form-group col-md-12">
       <label class="control-label" for="equipmentName"> Equipment Name </label>
       <input class="form-control" type="text" id="equipmentName" placeholder="Enter Equipment Name"
-             value="{{ equipmentName }}"/>
+             value="{{ equipment.name }}"/>
     </div>
   </div>
   <div class="row">
     <div class="form-group col-md-5">
       <label class="control-label" for="equipmentTag"> Equipment Tag </label>
-      <input class="form-control" type="text" id="equipmentTag" placeholder="Enter Equipment tag"/>
+      <input class="form-control" type="text" id="equipmentTag" placeholder="Enter Equipment tag"
+             value="{{ equipmentTag }}"/>
     </div>
     <div class="form-group col-md-7">
       <label class="control-label" for="equipmentCategory"> Equipment Category </label>
-      <select class="form-control" name="equipmentCategory" id="equipmentCategory">
-        <option value="{{ equipmentCategory }}" selected disabled> {{ equipmentCategory }} </option>
-        {{# each equipmentCategory }}
-          <option value="{{name}}"> {{ name }} </option>
+      <select class="form-control" name="equipmentCategory" id="equipmentCategory" value="{{ equipment.category }}">
+        <option value="{{ equipmentCategory }}" disabled> Select Equipment Category </option>
+        {{#each equipmentCategoryItem }}
+          <option value="{{name}}" {{ selectedEquipmentCategory ../equipment.category }}> {{ name }} </option>
         {{/each}}
       </select>
     </div>
@@ -44,7 +47,7 @@
     <div class="form-group col-md-12">
       <label class="control-label" for="equipmentDescription"> Equipment Description </label>
       <textarea class="form-control" name="equipmentDescription" id="equipmentDescription" rows="3" 
-                placeholder="Enter Equipment Description" style="resize: none">{{ equipmentDescription }}</textarea>
+                placeholder="Enter Equipment Description" style="resize: none">{{ equipment.description }}</textarea>
     </div>
   </div>
   <div class="row">
@@ -64,6 +67,20 @@
              placeholder="Enter Extended Price" value="{{ priceExtended }}"/>
     </div>
   </div> 
+  <div class="row">
+    <div class="form-group col-md-12">
+      <label class="control-label" for="documentLink"> Document Link </label>
+      <input class="form-control"  type="text" name="documentLink" id="documentLink" 
+             placeholder="Enter document Link" value="{{ documentLink }}"/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-md-8">
+      <label class="control-label" for="documentAttached"> Attached Document </label>
+      <input class="form-control"  type="text" name="documentAttached" id="documentAttached" 
+             placeholder="Enter document Link" value="{{ documentAttached }}"/>
+    </div>
+  </div>
 </template>
 
 <!--

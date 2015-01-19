@@ -5,12 +5,15 @@ if (Meteor.isClient) {
     // : - helpers
     Template.purchaseOrderEquipmentAdd.helpers({
 
+        purchaseOrderEquipmentItem : function() {
+            return new PurchaseOrderEquipment();
+        },
+
         showModal: function() {
             console.log('purchaseOrderEquipmentAdd - showModal');
             if (Session.get('addPurchaseOrderEquipment')) {
                 return "show";
             }
-        
         },
 
     });
