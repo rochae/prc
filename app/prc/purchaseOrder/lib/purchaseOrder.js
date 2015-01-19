@@ -3,7 +3,7 @@ PurchaseOrderCollection = new Mongo.Collection("purchaseOrder");
 
 // : - PurchaseOrder Class
 PurchaseOrder = function() { 
-    this.purchaseOrderNo          = "PO-No";
+    this.purchaseOrderNo          = null;
     this.purchaseOrderDate        = null;
     this.purchaseOrderDescription = null; 
     this.projectNo                = null;

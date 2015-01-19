@@ -5,7 +5,7 @@ if (Meteor.isClient) {
     // : - helpers
     Template.purchaseOrderList.helpers({
 
-        purchaseOrder: function() {
+        purchaseOrderItem: function() {
             //console.log('purchaseOrderNavbar - helper -selectedPurchasedOrderStatus');
             return PurchaseOrderCollection.find();
         },
@@ -14,7 +14,7 @@ if (Meteor.isClient) {
 
     // : - events
     Template.purchaseOrderList.events({
-        'dblclick tr.purchaseOrder': function(evt, tpl) {
+        'dblclick tr.purchaseOrderItem': function(evt, tpl) {
             console.log('purchaseOrderList - dblclick tr.purchaseOrder')
             Router.go('/purchaseOrder/edit/' + this._id, {});
         },
