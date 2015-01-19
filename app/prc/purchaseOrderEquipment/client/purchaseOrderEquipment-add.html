@@ -1,0 +1,40 @@
+<template name="purchaseOrderEquipmentAdd">
+  {{#if showModal}}
+    <div class="modal show" id="equipmentModal" tabindex="-1" role="dialog" 
+         aria-labelledby="equipmentModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <strong class="modal-title text-muted" id="equipmentModalLabel">
+              Equipment <span class="fa fa-angle-right fa-lg fa-fw"></span> Add 
+            </strong>
+          </div>
+          <div class="modal-body">
+            {{> purchaseOrderEquipmentDetail }}
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" id='equipment-close-btn' data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id='equipment-save-btn'> Save </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  {{/if}}
+</template>
+
+ <!--
+  <div class="panel panel-default ">
+    <div class="panel-heading">
+      <strong class="text-muted">Equipment <span class="fa fa-angle-right fa-lg fa-fw"></span> Add </strong>
+    </div>
+    <div class="panel-body">
+      {{> purchaseOrderEquipmentDetail }}
+    </div>
+    <div class="panel-footer">
+      {{> purchaseOrderEquipmentCancelSave }}
+    </div> 
+  </div>
+  -->
