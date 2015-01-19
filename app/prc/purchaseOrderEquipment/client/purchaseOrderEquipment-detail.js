@@ -15,6 +15,12 @@ if (Meteor.isClient) {
 
     });
 
+    
+    Template.purchaseOrderEquipmentDetail.rendered = function() {
+        console.log('purchaseOrderDetail.rendered - this.$(input)[0]:', this.$('input')[0])
+        this.$('input')[0].focus() 
+    };
+
 
 
 } //: - Meteor.isClient

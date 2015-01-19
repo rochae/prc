@@ -15,6 +15,7 @@ if (Meteor.isClient) {
             //e.preventDefault();
             Session.set('addPurchaseOrder', false);
             
+            console.log('purchaseOrderAdd - purchaseOrder.equipmentItems: ', this.equipmentItems);
             purchaseOrder = new PurchaseOrder().fromTemplate(tpl);
             PurchaseOrderCollection.insert(purchaseOrder);
         },

@@ -1,6 +1,10 @@
 <template name="purchaseOrderEquipmentHome">
   {{> purchaseOrderEquipmentNavbar }}
   {{> purchaseOrderEquipmentList }}
+
+  {{#if addPurchaseOrderEquipment }}
+    {{> purchaseOrderEquipmentAdd }}
+  {{/if}}
 </template>
 
 <template name="purchaseOrderEquipmentNavbar">
@@ -12,7 +16,7 @@
       {{#if addEditPurchaseOrder }}
           <div class="pull-right btn-toolbar btn-group-sm" role="group" style="padding-top: 5px">
             <a class="btn btn-default {{readonly}}" role="button" id="purchase-order-equipment-add-btn">
-              <strong class="text-success text-muted"><span class="fa fa-plus"></span> Equipment </strong>
+              <strong class="text-primary text-muted"><span class="fa fa-plus"></span> Equipment </strong>
             </a>
           </div>
       {{/if}}

@@ -43,8 +43,8 @@
     }
 }
 
-@media (min-height: 700px) {
-    .app-col-scroll {
+@media (min-height: 500px) {
+    .app-content-scroll {
         max-height:   calc(100vh - 100px); /* adjust height */
         overflow-y:   auto;
         margin-right: -20px;

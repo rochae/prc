@@ -26,9 +26,9 @@ if (Meteor.isClient) {
             Session.set('addPurchaseOrder', false);
 
             purchaseOrder = new PurchaseOrder().fromTemplate(tpl);
-            //console.log('purchaseOrderEdit - purchaseOrder: ', this);
+            console.log('purchaseOrderEdit - purchaseOrder: ', purchaseOrder);
 
-            PurchaseOrders.update({_id: this._id}, purchaseOrder);
+            PurchaseOrderCollection.update({_id: this._id}, purchaseOrder);
             //console.log(PurchaseOrders.findOne({_id: this._id}));
         },
 

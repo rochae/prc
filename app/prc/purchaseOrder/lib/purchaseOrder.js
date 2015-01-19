@@ -3,7 +3,7 @@ PurchaseOrderCollection = new Mongo.Collection("purchaseOrder");
 
 // : - PurchaseOrder Class
 PurchaseOrder = function() { 
-    this.purchaseOrderNo          = null;
+    this.purchaseOrderNo          = "PO-No";
     this.purchaseOrderDate        = null;
     this.purchaseOrderDescription = null; 
     this.projectNo                = null;
@@ -16,7 +16,7 @@ PurchaseOrder = function() {
     this.weeksDeliverQuoted       = null;
     this.weeksDeliverActual       = null;
     this.weeksDeliverDrawing      = null;
-    this.purchaseOrderEquipment   = [];
+    
 
     this.fromTemplate = function(tpl) {
         this.purchaseOrderNo          = tpl.find('#purchaseOrderNo').value;
@@ -32,8 +32,7 @@ PurchaseOrder = function() {
                 mm = '0' + mm;
             }
             yyyy = today.getFullYear();
-            this.purchaseOrderDate = mm + '-' + dd + '-' + yyyy;
-            console.log('purchaseOrderDate In', this.purchaseOrderDate);
+            this.purchaseOrderDate = yyyy + '-' + mm + '-' + dd;
         }
         console.log('purchaseOrderDate Out', this.purchaseOrderDate);
         this.purchaseOrderDescription = tpl.find('#purchaseOrderDescription').value;

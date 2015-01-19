@@ -43,7 +43,10 @@ Router.route('/purchaseOrder/add', function () {
 
   this.render('purchaseOrderAdd', {
     data: function() {
-      return new PurchaseOrder();
+      purchaseOrder          = new PurchaseOrder();
+      purchaseOrderEquipmentItems = [];
+      purchaseOrder.equipmentItems = purchaseOrderEquipmentItems;
+      return purchaseOrder;
     }
   });
 
@@ -56,7 +59,15 @@ Router.route('/purchaseOrder/edit/:_id', function () {
 
   this.render('purchaseOrderEdit', {
     data: function() {
-      return PurchaseOrderCollection.findOne({_id: this.params._id});
+      purchaseOrder = PurchaseOrderCollection.findOne({_id: this.params._id});
+      console.log("1. purchaseOrder : ", purchaseOrder);
+      if ( purchaseOrder ) {
+        console.log("2. purchaseOrder : ", purchaseOrder);
+        purchaseOrder.equipmentItems = [{item: 10, quantity: 20}, ];
+        console.log("3. purchaseOrder : ", purchaseOrder);
+      }
+      //po.equipmentItems = [{item: 10, quantity: 20}, ];
+      return purchaseOrder;
     }
   });
 
