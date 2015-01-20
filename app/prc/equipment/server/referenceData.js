@@ -55,7 +55,7 @@ if (Meteor.isServer) {
             { name : 'Dehydrator'}, 
         ];
         EquipmentCategoryReferenceData.forEach( function(element, index, array) {
-            EquipmentCategories.insert(element);
+            EquipmentCategoryCollection.insert(element);
         });
     }
 
