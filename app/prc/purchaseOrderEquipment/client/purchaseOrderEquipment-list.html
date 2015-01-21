@@ -13,40 +13,45 @@
     </thead>
     <tbody>
       {{#each equipmentItems }}
-      <tr>
-        <td> {{ item }} </td>
-        <td> {{ quantity }} </td>
-        <td> {{ unit }} </td>
-        <td>
-          
-          <div class="row">
-            <div class="col-md-12"> {{ name }} </div>
-          </div>
-          <div class="row">
-            <div class="col-md-5"> {{ tag }} </div>
-            <div class="col-md-7"> {{ Category }} </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              <pre style="border:none;"> {{ description }} </pre>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-             {{ documentLink }}
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              {{ attachedDocument }}
-            </div>
-          </div>
-        </td>
-        <td> {{ wbsNo }} </td>
-        <td><div class="text-right">{{ unitPrice }} </div></td>
-        <td><div class="text-right"> {{ extendedPrice }} </div></td>
-      </tr>
+        {{> purchaseOrderEquipmentItem }}
       {{/each}}
     </tbody>
   </table>
+</template>
+
+<template name="purchaseOrderEquipmentItem">
+  <tr>
+    <td> {{ item }} </td>
+    <td> {{ quantity }} </td>
+    <td> {{ unit }} </td>
+    <td>
+      <div class="row">
+        <div class="col-md-5"> {{ equipmentTag }} </div>
+        <div class="col-md-7"> {{ equipment.category }} </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12"> {{ equipment._name }} </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <pre style="border:none;"> {{ equipment._description }} </pre>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+         {{ documentsLink }}
+        </div>
+      </div>
+      <!--
+      <div class="row">
+        <div class="col-md-12">
+          {{ datasheet }}
+        </div>
+      </div>
+      -->
+    </td>
+    <td> {{ wbsNo }} </td>
+    <td><div class="text-right">{{ unitPrice }} </div></td>
+    <td><div class="text-right"> {{ extendedPrice }} </div></td>
+  </tr>
 </template>

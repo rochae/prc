@@ -21,13 +21,6 @@
     </div>
   </div> 
   <div class="row">
-    <div class="form-group col-md-12">
-      <label class="control-label" for="equipmentName"> Equipment Name </label>
-      <input class="form-control" type="text" id="equipmentName" placeholder="Enter Equipment Name"
-             value="{{ equipment.name }}"/>
-    </div>
-  </div>
-  <div class="row">
     <div class="form-group col-md-5">
       <label class="control-label" for="equipmentTag"> Equipment Tag </label>
       <input class="form-control" type="text" id="equipmentTag" placeholder="Enter Equipment tag"
@@ -35,19 +28,31 @@
     </div>
     <div class="form-group col-md-7">
       <label class="control-label" for="equipmentCategory"> Equipment Category </label>
-      <select class="form-control" name="equipmentCategory" id="equipmentCategory" value="{{ equipment.category }}">
-        <option value="{{ equipmentCategory }}" disabled> Select Equipment Category </option>
+      <select class="form-control" name="equipmentCategory" id="equipmentCategory" 
+              value="{{ equipment.category }}">
+        <option value="{{ equipmentCategory }}" disabled selected> Select Equipment Category </option>
         {{#each equipmentCategoryItem }}
-          <option value="{{name}}" {{ selectedEquipmentCategory ../equipment.category }}> {{ name }} </option>
+          <option value="{{name}}" {{ selectedEquipmentCategory ../equipment.category }}> {{ _name }} </option>
         {{/each}}
       </select>
     </div>
   </div>
   <div class="row">
     <div class="form-group col-md-12">
+      <label class="control-label" for="equipmentName"> Equipment Name </label>
+      <input class="form-control" type="text" id="equipmentName" placeholder="Enter Equipment Name"
+             value="{{ equipment._name }}"/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-md-12">
       <label class="control-label" for="equipmentDescription"> Equipment Description </label>
+      <!--
       <textarea class="form-control" name="equipmentDescription" id="equipmentDescription" rows="3" 
-                placeholder="Enter Equipment Description" style="resize: none">{{ equipment.description }}</textarea>
+                placeholder="Enter Equipment Description" style="resize: none">{{ equipmentDescription }}</textarea>
+      -->
+      <input class="form-control" type="text" id="equipmentDescription" 
+             placeholder="Enter Equipment Description" value="{{ equipment._description }}"/>
     </div>
   </div>
   <div class="row">
@@ -69,18 +74,20 @@
   </div> 
   <div class="row">
     <div class="form-group col-md-12">
-      <label class="control-label" for="documentLink"> Document Link </label>
-      <input class="form-control"  type="text" name="documentLink" id="documentLink" 
-             placeholder="Enter document Link" value="{{ documentLink }}"/>
+      <label class="control-label" for="documentsLink"> Documents Link </label>
+      <input class="form-control"  type="text" name="documentsLink" id="documentsLink" 
+             placeholder="Enter Equipment Documents Link" value="{{ equipment.documentsLink }}"/>
     </div>
   </div>
+  <!--
   <div class="row">
     <div class="form-group col-md-8">
-      <label class="control-label" for="documentAttached"> Attached Document </label>
-      <input class="form-control"  type="text" name="documentAttached" id="documentAttached" 
-             placeholder="Enter document Link" value="{{ documentAttached }}"/>
+      <label class="control-label" for="datasheet"> Attached Datasheet </label>
+      <input class="form-control"  type="text" name="datasheet" id="datasheet" 
+             placeholder="Attache Equipment Datasheet File" value="{{ equipment.datasheet }}"/>
     </div>
   </div>
+  -->
 </template>
 
 <!--

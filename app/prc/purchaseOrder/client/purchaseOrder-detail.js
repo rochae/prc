@@ -6,7 +6,7 @@ if (Meteor.isClient) {
     Template.purchaseOrderDetail.helpers({
 
         readonly: function() {
-            console.log('purchaseOrderDetail - readonly');
+            //console.log('purchaseOrderDetail - readonly');
             if (Session.get("addPurchaseOrder")){
                 return "";
             }
@@ -14,14 +14,14 @@ if (Meteor.isClient) {
         },
 
         checkedMarketDomestic: function() {
-            console.log('purchaseOrderDetail - checkedMarketDomestic');
+            //console.log('purchaseOrderDetail - checkedMarketDomestic');
             if ( this.market === 'Domestic') {
                 return 'checked';
             }
         },
 
         checkedMarketInternational: function() {
-            console.log('purchaseOrderDetail - checkedMarketInternational');
+            //console.log('purchaseOrderDetail - checkedMarketInternational');
             if ( this.market === 'International') {
                 return 'checked';
             }
@@ -30,7 +30,7 @@ if (Meteor.isClient) {
     });
 
     Template.purchaseOrderDetail.rendered = function() {
-        console.log('purchaseOrderDetail.rendered - this.$(input)[0]:', this.$('input')[0])
+        //console.log('purchaseOrderDetail.rendered - this.$(input)[0].focus():', this.$('input')[0])
         this.$('input')[0].focus() 
     };
 

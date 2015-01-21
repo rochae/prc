@@ -6,7 +6,7 @@ if (Meteor.isClient) {
     Template.purchaseOrderNavbar.helpers({
 
         readonly: function() {
-            console.log('purchaseOrderNavbar - readonly');
+            //console.log('purchaseOrderNavbar - readonly');
             if (Session.get("addPurchaseOrder")) {
                 return "disabled";
             }
@@ -14,7 +14,7 @@ if (Meteor.isClient) {
         },
 
         editPurchaseOrder: function() {
-            console.log('purchaseOrderNavbar - editPurchaseOrder');
+            //console.log('purchaseOrderNavbar - editPurchaseOrder');
             return Session.get("editPurchaseOrder");
         },
 

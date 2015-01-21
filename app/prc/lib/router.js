@@ -43,9 +43,7 @@ Router.route('/purchaseOrder/add', function () {
 
   this.render('purchaseOrderAdd', {
     data: function() {
-      purchaseOrder          = new PurchaseOrder();
-      purchaseOrderEquipmentItems = [];
-      purchaseOrder.equipmentItems = purchaseOrderEquipmentItems;
+      purchaseOrder = new PurchaseOrder();
       return purchaseOrder;
     }
   });
@@ -63,7 +61,7 @@ Router.route('/purchaseOrder/edit/:_id', function () {
       console.log("1. purchaseOrder : ", purchaseOrder);
       if ( purchaseOrder ) {
         console.log("2. purchaseOrder : ", purchaseOrder);
-        purchaseOrder.equipmentItems = [{item: 10, quantity: 20}, ];
+        purchaseOrder.equipmentItems = [];
         console.log("3. purchaseOrder : ", purchaseOrder);
       }
       //po.equipmentItems = [{item: 10, quantity: 20}, ];

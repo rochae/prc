@@ -1,12 +1,28 @@
 PurchaseOrderEquipmentCollection = new Mongo.Collection("purchaseOrderEquipment");
 
 PurchaseOrderEquipment = function() {
-    this.item          = 10;
-    this.quantity      = 11;
-    this.unit          = "Lot";
-    this.equipmentTag  = "tag-10";
-    this.equipment     = new Equipment();
-    this.wbsNo         = "wbs-10";
-    this.priceUnit     = 1000;
-    this.priceExtended = 1100;
-}
+    this.purchaseOrderId = 0;
+    this.equipmentId     = 0;
+    this.item            = null;
+    this.quantity        = null;
+    this.unit            = null;
+    this.equipmentTag    = null;
+    this.wbsNo           = null;
+    this.priceUnit       = null;
+    this.priceExtended   = null;
+    this.documentsLink   = null;
+    this.datasheet       = null;
+};
+
+purchaseOrderEquipmentFromTemplate = function(tpl) {
+    purchaseOrderEquipment = new PurchaseOrderEquipment();
+    purchaseOrderEquipment.item                   = tpl.find('#item').value;
+    purchaseOrderEquipment.quantity               = tpl.find('#quantity').value;
+    purchaseOrderEquipment.unit                   = tpl.find('#unit').value;
+    purchaseOrderEquipment.equipmentTag           = tpl.find('#equipmentTag').value;
+    purchaseOrderEquipment.wbsNo                  = tpl.find('#wbsNo').value;
+    purchaseOrderEquipment.priceUnit              = tpl.find('#priceUnit').value;
+    purchaseOrderEquipment.priceExtended          = tpl.find('#priceExtended').value;
+    purchaseOrderEquipment.documentsLink          = tpl.find('#documentsLink').value;
+    return purchaseOrderEquipment;
+};

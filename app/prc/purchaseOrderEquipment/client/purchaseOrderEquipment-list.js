@@ -3,15 +3,17 @@
 if (Meteor.isClient) {
 
     // : - helpers
-    Template.purchaseOrderEquipmentHome.helpers({
+    Template.purchaseOrderEquipmentList.helpers({
 
-        addPurchaseOrderEquipment: function() {
-            console.log('purchaseOrderEquipmentHome - addPurchaseOrderEquipment');
-            return Session.get('addPurchaseOrderEquipment');
+        equipmentItems: function() {
+            console.log('purchaseOrderEquipmentList - equipmentItems');
+            console.log('this._id', this._id || 0);
+            console.log('equipmentItems', PurchaseOrderEquipmentCollection.find({purchaseOrderId: this._id || 0}));
+            return PurchaseOrderEquipmentCollection.find({purchaseOrderId: this._id || 0});
         },
-
     });
 
+/* --
     // : - events
     Template.purchaseOrderEquipmentHome.events({
 
@@ -21,5 +23,6 @@ if (Meteor.isClient) {
         },
 
     });
+-- */
 
 } //: - Meteor.isClient
