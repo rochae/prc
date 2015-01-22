@@ -10,6 +10,11 @@ if (Meteor.isClient) {
             return Session.get('addPurchaseOrderEquipment');
         },
 
+        editPurchaseOrderEquipment: function() {
+            console.log('purchaseOrderEquipmentHome - editPurchaseOrderEquipment');
+            return Session.get('editPurchaseOrderEquipment');
+        },
+
     });
 
     // : - events
@@ -17,7 +22,7 @@ if (Meteor.isClient) {
 
         'click #purchase-order-equipment-add-btn': function(e, t) {
             console.log('purchaseOrderEquipmentHome - click #purchase-order-equipment-add-btn');
-            Session.set('addPurchaseOrderEquipment', true);      
+            Session.set('addPurchaseOrderEquipment', true);    
         },
 
     });

@@ -31,8 +31,8 @@
       <select class="form-control" name="equipmentCategory" id="equipmentCategory" 
               value="{{ equipment.category }}">
         <option value="{{ equipmentCategory }}" disabled selected> Select Equipment Category </option>
-        {{#each equipmentCategoryItem }}
-          <option value="{{name}}" {{ selectedEquipmentCategory ../equipment.category }}> {{ _name }} </option>
+        {{#each equipmentCategoryItems }}
+          <option value="{{_name}}" {{ selectedEquipmentCategory ../equipment.category }}> {{ _name }} </option>
         {{/each}}
       </select>
     </div>

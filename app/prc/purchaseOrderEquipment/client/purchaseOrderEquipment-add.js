@@ -12,11 +12,6 @@ if (Meteor.isClient) {
             }
         },
 
-        equipmentItem: function() {
-            console.log('purchaseOrderEquipmentList - equipmentItems', this.equipmentItems);
-            return this.equipmentItems;
-        },
-
     });        
 
     // : - events
@@ -34,13 +29,18 @@ if (Meteor.isClient) {
 
             equipment              = equipmentFromTemplate(tpl);
             purchaseOrderEquipment = purchaseOrderEquipmentFromTemplate(tpl);
+            purchaseOrderEquipment.equipment = equipment;
+            purchaseOrderEquipmentItems = Session.get('purchaseOrderEquipmentItems');
+            purchaseOrderEquipmentItems.push(purchaseOrderEquipment);
+            Session.set('purchaseOrderEquipmentItems', purchaseOrderEquipmentItems);
+            console.log('purchaseOrderEquipmentItems: ', Session.get('purchaseOrderEquipmentItems'));
             
-            purchaseOrderEquipment.purchaseOrderId = this._id || 0;
-            purchaseOrderEquipment.equipmentId     = EquipmentCollection.insert(equipment);
-            PurchaseOrderEquipmentCollection.insert(purchaseOrderEquipment);
-            console.log('this._id || 0: ', this._id || 0);
-            console.log('purchaseOrderEquipment.equipmentId: ', this.equipmentItems);
-            console.log('purchaseOrderEquipment: ', purchaseOrderEquipment);
+            //purchaseOrderEquipment.purchaseOrderId = this._id || 0;
+            //purchaseOrderEquipment.equipmentId     = EquipmentCollection.insert(equipment);
+            //PurchaseOrderEquipmentCollection.insert(purchaseOrderEquipment);
+            //console.log('this._id || 0: ', this._id || 0);
+            //console.log('purchaseOrderEquipment.equipmentId: ', this.equipmentItems);
+            //console.log('purchaseOrderEquipment: ', purchaseOrderEquipment);
         }
 
     });

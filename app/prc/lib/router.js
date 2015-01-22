@@ -18,6 +18,7 @@ Router.route('/', function () {
   Session.set('addPurchaseOrder',  false);
   Session.set('editPurchaseOrder', false);
   Session.set('addPurchaseOrderEquipment', false);
+  Session.set('editPurchaseOrderEquipment', false);
 
   this.render('home', {
     data: function() {
@@ -31,6 +32,7 @@ Router.route('/purchaseOrder', function () {
   Session.set('addPurchaseOrder',  false);
   Session.set('editPurchaseOrder', false);
   Session.set('addPurchaseOrderEquipment', false);
+  Session.set('editPurchaseOrderEquipment', false);
 
   this.render('purchaseOrderHome');
 
@@ -40,13 +42,15 @@ Router.route('/purchaseOrder/add', function () {
   Session.set('addPurchaseOrder',  true);
   Session.set('editPurchaseOrder', false);
   Session.set('addPurchaseOrderEquipment', false);
+  Session.set('editPurchaseOrderEquipment', false);
+  Session.set('purchaseOrderEquipmentItems', []);
 
-  this.render('purchaseOrderAdd', {
-    data: function() {
-      purchaseOrder = new PurchaseOrder();
-      return purchaseOrder;
-    }
-  });
+  this.render('purchaseOrderAdd'); //, {
+    //data: function() {
+      //purchaseOrder = new PurchaseOrder();
+      //return purchaseOrder;
+    //}
+  //});
 
 });
 
@@ -54,6 +58,7 @@ Router.route('/purchaseOrder/edit/:_id', function () {
   Session.set('addPurchaseOrder',  false);
   Session.set('editPurchaseOrder', true);
   Session.set('addPurchaseOrderEquipment', false);
+  Session.set('editPurchaseOrderEquipment', false);
 
   this.render('purchaseOrderEdit', {
     data: function() {
