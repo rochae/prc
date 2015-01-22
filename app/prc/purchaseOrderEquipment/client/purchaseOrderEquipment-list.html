@@ -1,57 +1,57 @@
 <template name="purchaseOrderEquipmentList">
-  <table class="table table-striped table-bordered table-condensed table-hover">
+  <table class="table table-striped table-bordered table-hover table-condensed">
     <thead class="bg-primary">
       <tr>
         <th class="colspan-1"><div class="text-center"> Item </div></th>
         <th class="colspan-1"><div class="text-center"> Qty. </div></th>
         <th class="colspan-1"><div class="text-center"> Unit </div></th>
-        <th class="colspan-6"><div class="text-center"> Description </div></th>
-        <th class="colspan-1"><div class="text-center"> WBS No. </div></th>
-        <th class="colspan-1"><div class="text-center"> Unit Price </div></th>
-        <th class="colspan-1"><div class="text-center"> Extended Price </div></th>
+        <th class="colspan-6 col-md-4"><div class="text-center"> Description </div></th>
+        <th class="colspan-1 col-md-2"><div class="text-center"> WBS No. </div></th>
+        <th class="colspan-1 col-md-2"><div class="text-center"> Unit Price </div></th>
+        <th class="colspan-1 col-md-2"><div class="text-center">Extended Price (USD) </div></th>
       </tr>
     </thead>
     <tbody>
-      {{#each equipmentItems }}
-        {{> purchaseOrderEquipmentItem }}
+      {{#each purchaseOrderEquipmentItems }}
+        <tr>
+          <td><div class="text-center"> {{ item }} </div></td>
+          <td><div class="text-center"> {{ quantity }} </div></td>
+          <td><div class="text-center"> {{ unit }} </div></td>
+          <td>
+            {{#with equipmentItem}}
+              <div class="row">
+                <div class="col-md-12"> {{ _name }} </div>
+              </div>
+              <div class="row">
+                <div class="col-md-5"> {{ ../equipmentTag }} </div>
+                <div class="col-md-7"> {{ category }} </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12"> {{ _description }} </div>
+                  <!--
+                  <pre style="border:none;"> {{ equipment._description }} </pre>
+                  -->
+              </div>
+            {{/with}}
+            
+            <div class="row">
+              <div class="col-md-12">
+               {{ documentsLink }}
+              </div>
+            </div>
+            <!--
+            <div class="row">
+              <div class="col-md-12">
+                {{ datasheet }}
+              </div>
+            </div>
+            -->
+          </td>
+          <td> {{ wbsNo }} </td>
+          <td><div class="text-right">{{ priceUnit }} </div></td>
+          <td><div class="text-right"> {{ priceExtended }} </div></td>
+        </tr>
       {{/each}}
     </tbody>
   </table>
-</template>
-
-<template name="purchaseOrderEquipmentItem">
-  <tr>
-    <td> {{ item }} </td>
-    <td> {{ quantity }} </td>
-    <td> {{ unit }} </td>
-    <td>
-      <div class="row">
-        <div class="col-md-5"> {{ equipmentTag }} </div>
-        <div class="col-md-7"> {{ equipment.category }} </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12"> {{ equipment._name }} </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <pre style="border:none;"> {{ equipment._description }} </pre>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-         {{ documentsLink }}
-        </div>
-      </div>
-      <!--
-      <div class="row">
-        <div class="col-md-12">
-          {{ datasheet }}
-        </div>
-      </div>
-      -->
-    </td>
-    <td> {{ wbsNo }} </td>
-    <td><div class="text-right">{{ unitPrice }} </div></td>
-    <td><div class="text-right"> {{ extendedPrice }} </div></td>
-  </tr>
 </template>

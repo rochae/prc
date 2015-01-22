@@ -5,12 +5,22 @@ if (Meteor.isClient) {
     // : - helpers
     Template.purchaseOrderEquipmentList.helpers({
 
-        equipmentItems: function() {
+        purchaseOrderEquipmentItems: function() {
             console.log('purchaseOrderEquipmentList - equipmentItems');
             console.log('this._id', this._id || 0);
-            console.log('equipmentItems', PurchaseOrderEquipmentCollection.find({purchaseOrderId: this._id || 0}));
+            console.log('equipmentItems', PurchaseOrderEquipmentCollection.find({purchaseOrderId: this._id || 0}).fetch());
+            //purchaseOrderEquipment = PurchaseOrderEquipmentCollection.find({purchaseOrderId: this._id || 0});
             return PurchaseOrderEquipmentCollection.find({purchaseOrderId: this._id || 0});
         },
+
+        equipmentItem: function() {
+            console.log('Equipment - equipmentItem');
+            console.log('this.equipmentId', this.equipmentId);
+            console.log('equipmentItems', EquipmentCollection.find({_id: this.equipmentId}).fetch());
+            equipment = EquipmentCollection.find({_id: this.equipmentId});
+            return EquipmentCollection.findOne({_id: this.equipmentId});
+        },
+
     });
 
 /* --
