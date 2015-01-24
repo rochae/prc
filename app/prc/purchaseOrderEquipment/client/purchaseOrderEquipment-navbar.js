@@ -20,4 +20,14 @@ if (Meteor.isClient) {
 
     });
 
+    // : - events
+    Template.purchaseOrderEquipmentHome.events({
+
+        'click #purchase-order-equipment-add-btn': function(e, t) {
+            console.log('purchaseOrderEquipmentHome - click #purchase-order-equipment-add-btn');
+            //Session.set('addPurchaseOrderEquipment', true);   
+        },
+
+    });
+
 } //: - Meteor.isClient

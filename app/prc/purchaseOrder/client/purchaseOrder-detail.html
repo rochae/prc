@@ -97,14 +97,12 @@
       <div class="col-md-2 col-md-offset-2">
         <legend><h4 class="text-muted"> Market </h4></legend>
         <div class="radio">
-          <label class="radio">
-            <input type="radio" name="market" id="marketDomestic" checked="{{ checkedMarketDomestic }}" 
-                   value="Domestic"> Domestic
-          </label>
-          <label class="radio">
-            <input type="radio" name="market" id="marketInternational" checked="{{ checkedMarketInternational }}" 
-                   value="International"> International
-          </label>
+          {{#each marketItems }}
+            <label class="radio">
+              <input type="radio" name="market" id="{{ marketId }}" checked="{{ selectedMarket ../market }}" 
+                     value="{{marketName}}"> {{ marketName }}
+            </label>
+          {{/each}}
         </div>
       </div>
     </div>

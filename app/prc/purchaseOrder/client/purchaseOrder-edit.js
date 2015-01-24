@@ -5,7 +5,7 @@ if (Meteor.isClient) {
     // : - helpers
     Template.purchaseOrderEdit.helpers({
         
-        addEditPurchaseOrder: function() {
+        addPurchaseOrder: function() {
             //console.log('purchaseOrderEdit - addEditPurchaseOrder');
             return Session.get('addPurchaseOrder');
         },
@@ -25,7 +25,7 @@ if (Meteor.isClient) {
             //e.preventDefault();
             Session.set('addPurchaseOrder', false);
 
-            purchaseOrder = new PurchaseOrder().fromTemplate(tpl);
+            purchaseOrder = purchaseOrderFromTemplate(tpl);
             console.log('purchaseOrderEdit - click #purchase-order-save-btn - purchaseOrder: ', purchaseOrder);
             PurchaseOrderCollection.update({_id: this._id}, purchaseOrder);
             //console.log(PurchaseOrders.findOne({_id: this._id}));

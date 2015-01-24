@@ -7,17 +7,18 @@ if (Meteor.isClient) {
 
         readonly: function() {
             //console.log('purchaseOrderNavbar - readonly');
-            if (Session.get("addPurchaseOrder")) {
-                return "disabled";
+            if (Session.get('addPurchaseOrder')) {
+                return 'disabled';
             }
-            return "";
         },
 
         editPurchaseOrder: function() {
-            //console.log('purchaseOrderNavbar - editPurchaseOrder');
-            return Session.get("editPurchaseOrder");
+            //console.log('purchaseOrderNavbar - readonly');
+            return Session.get('editPurchaseOrder');
         },
 
     });
+
+    
 
 } //: - Meteor.isClient

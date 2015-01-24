@@ -8,22 +8,19 @@ if (Meteor.isClient) {
         readonly: function() {
             //console.log('purchaseOrderDetail - readonly');
             if (Session.get("addPurchaseOrder")){
-                return "";
+                return '';
             }
-            return "disabled";
+            return 'disabled';
         },
 
-        checkedMarketDomestic: function() {
-            //console.log('purchaseOrderDetail - checkedMarketDomestic');
-            if ( this.market === 'Domestic') {
-                return 'checked';
-            }
+        marketItems: function() {
+            return [ {marketId : 'marketDomestic',     marketName : 'Domestic'},
+                     {marketId : 'marketInternational', marketName : 'International'}, ];
         },
 
-        checkedMarketInternational: function() {
-            //console.log('purchaseOrderDetail - checkedMarketInternational');
-            if ( this.market === 'International') {
-                return 'checked';
+        selectedMarket: function (market) {
+            if (market === this.marketName) {
+                return 'selected'
             }
         },
 

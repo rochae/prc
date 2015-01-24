@@ -12,46 +12,45 @@ PurchaseOrder = function() {
     this.buyer                    = null; 
     this.purchaseLocation         = null; 
     this.pointOfOrigin            = null; 
-    this.market                   = "Domestic"; 
+    this.market                   = null; 
     this.weeksDeliverQuoted       = null;
     this.weeksDeliverActual       = null;
     this.weeksDeliverDrawing      = null;
-    
+};
 
-    this.fromTemplate = function(tpl) {
-        this.purchaseOrderNo          = tpl.find('#purchaseOrderNo').value;
-        this.purchaseOrderDate        = tpl.find('#purchaseOrderDate').value;
-        if (! this.purchaseOrderDate) {
-            today = new Date();
-            dd = today.getDate();
-            if (dd < 10) {
-                dd = '0' + dd;
-            }
-            mm = today.getMonth() + 1;
-            if (mm < 10) {
-                mm = '0' + mm;
-            }
-            yyyy = today.getFullYear();
-            this.purchaseOrderDate = yyyy + '-' + mm + '-' + dd;
+purchaseOrderFromTemplate = function(tpl) {
+    purchaseOrder = new PurchaseOrder();
+    purchaseOrder.purchaseOrderNo   = tpl.find('#purchaseOrderNo').value;
+    purchaseOrder.purchaseOrderDate = tpl.find('#purchaseOrderDate').value;
+    if (! purchaseOrder.purchaseOrderDate) {
+        today = new Date();
+        dd = today.getDate();
+        if (dd < 10) {
+            dd = '0' + dd;
         }
-        console.log('purchaseOrderDate Out', this.purchaseOrderDate);
-        this.purchaseOrderDescription = tpl.find('#purchaseOrderDescription').value;
-        this.projectNo                = tpl.find('#projectNo').value;
-        this.projectName              = tpl.find('#projectName').value;
-        this.vendor                   = tpl.find('#vendor').value;
-        this.buyer                    = tpl.find('#buyer').value;
-        this.purchaseLocation         = tpl.find('#purchaseLocation').value;
-        this.pointOfOrigin            = tpl.find('#pointOfOrigin').value;
-        this.weeksDeliverQuoted       = tpl.find('#weeksDeliverQuoted').value;
-        this.weeksDeliverActual       = tpl.find('#weeksDeliverActual').value;
-        this.weeksDeliverDrawing      = tpl.find('#weeksDeliverDrawing').value;
-        marketDomestic                = tpl.find('#marketDomestic')
-        if (marketDomestic.checked) {
-            this.market = marketDomestic.value;
+        mm = today.getMonth() + 1;
+        if (mm < 10) {
+            mm = '0' + mm;
         }
-        else {
-            this.market = tpl.find('#marketInternational').value;
-        }
-        return this;
+        yyyy = today.getFullYear();
+        purchaseOrder.purchaseOrderDate = yyyy + '-' + mm + '-' + dd;
     }
+    purchaseOrder.purchaseOrderDescription = tpl.find('#purchaseOrderDescription').value;
+    purchaseOrder.projectNo                = tpl.find('#projectNo').value;
+    purchaseOrder.projectName              = tpl.find('#projectName').value;
+    purchaseOrder.vendor                   = tpl.find('#vendor').value;
+    purchaseOrder.buyer                    = tpl.find('#buyer').value;
+    purchaseOrder.purchaseLocation         = tpl.find('#purchaseLocation').value;
+    purchaseOrder.pointOfOrigin            = tpl.find('#pointOfOrigin').value;
+    purchaseOrder.weeksDeliverQuoted       = tpl.find('#weeksDeliverQuoted').value;
+    purchaseOrder.weeksDeliverActual       = tpl.find('#weeksDeliverActual').value;
+    purchaseOrder.weeksDeliverDrawing      = tpl.find('#weeksDeliverDrawing').value;
+    marketDomestic                = tpl.find('#marketDomestic')
+    if (marketDomestic.checked) {
+        purchaseOrder.market = marketDomestic.value;
+    }
+    else {
+        purchaseOrder.market = tpl.find('#marketInternational').value;
+    }
+    return purchaseOrder;
 };

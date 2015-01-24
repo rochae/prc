@@ -12,13 +12,4 @@ if (Meteor.isClient) {
         
     });
 
-    // : - events
-    Template.purchaseOrderList.events({
-        'dblclick tr.purchaseOrderItem': function(evt, tpl) {
-            //console.log('purchaseOrderList - dblclick tr.purchaseOrder')
-            Router.go('/purchaseOrder/edit/' + this._id, {});
-        },
-        
-    });
-
 } //: - Meteor.isClient

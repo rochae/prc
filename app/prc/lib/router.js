@@ -1,7 +1,6 @@
 Router.configure({
     layoutTemplate: 'appLayout',
     notFoundTemplate: 'notFound',
-
     // : - Uncommend when data subscription is done.
     /* -- 
     waitOn: function() {
@@ -44,13 +43,16 @@ Router.route('/purchaseOrder/add', function () {
   Session.set('addPurchaseOrderEquipment', false);
   Session.set('editPurchaseOrderEquipment', false);
   Session.set('purchaseOrderEquipmentItems', []);
-
-  this.render('purchaseOrderAdd'); //, {
-    //data: function() {
-      //purchaseOrder = new PurchaseOrder();
-      //return purchaseOrder;
-    //}
-  //});
+  
+  this.render('purchaseOrderAdd', {
+    data: function() {
+      purchaseOrder = new PurchaseOrder();
+      if (purchaseOrder) {
+        purchaseOrder.market = "Domestic"; 
+      }
+      return purchaseOrder;
+    }
+  });
 
 });
 
@@ -63,16 +65,14 @@ Router.route('/purchaseOrder/edit/:_id', function () {
   this.render('purchaseOrderEdit', {
     data: function() {
       purchaseOrder = PurchaseOrderCollection.findOne({_id: this.params._id});
-      console.log("1. purchaseOrder : ", purchaseOrder);
+      //console.log("1. purchaseOrder : ", purchaseOrder);
       if ( purchaseOrder ) {
-        console.log("2. purchaseOrder : ", purchaseOrder);
+        //console.log("2. purchaseOrder : ", purchaseOrder);
         purchaseOrder.equipmentItems = [];
-        console.log("3. purchaseOrder : ", purchaseOrder);
+        //console.log("3. purchaseOrder : ", purchaseOrder);
       }
-      //po.equipmentItems = [{item: 10, quantity: 20}, ];
       return purchaseOrder;
     }
   });
 
 });
-
