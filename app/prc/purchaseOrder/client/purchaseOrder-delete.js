@@ -2,9 +2,45 @@
 
 if (Meteor.isClient) {
 
-    // : - events
-    Template.purchaseOrderAdd.events({
+    // : - helpers
+    Template.purchaseOrderDelete.helpers({
+        
+        deletePurchaseOrder: function() {
+            console.log('purchaseOrderDelete - deletePurchaseOrder');
+            return Session.get('deletePurchaseOrder');
+        },
 
+    });
+
+    // : - events
+    Template.purchaseOrderDelete.events({
+        
+        'click #purchase-order-delete-btn': function(evt, tpl) {
+            console.log('purchaseOrderDelete - click #purchase-order-delete-btn');
+            Session.set('deletePurchaseOrder', true);
+        },
+
+
+        'click #purchase-order-delete-confirm-btn': function(evt, tpl) {
+            console.log('purchaseOrderDelete - purchase-order-delete-confirm-btn');
+            Session.set('deletePurchaseOrder', false);
+
+            console.log('PurchaserOrder._id: ', this._id)
+            purchaseOrderEquipmentItems = PurchaseOrderEquipmentCollection.find({purchaseOrderId : this._id});
+            purchaseOrderEquipmentItems.forEach(function(elem, idx, arry) {
+                console.log('PurchaseorderEquipment._id: ', elem._id);
+                console.log('PurchaseorderEquipment.purchaseOrderId: ', elem.purchaseOrderId);
+                console.log('PurchaseorderEquipment.equipment: ', elem.equipment);
+
+                EquipmentCollection.findOne({_id : elem.equipmentId})
+                console.log('insert Equipment', EquipmentCollection.findOne({_id : elem.equipmentId}));
+                
+                });
+            Router.go('/purchaseOrder');
+        },
+
+
+        /*
         'click #purchase-order-cancel-btn': function(evt, tpl) {
             //console.log('purchaseOrderAdd - click add purchase-order-cancel-btn');
             Session.set('addPurchaseOrder', false);
@@ -39,6 +75,7 @@ if (Meteor.isClient) {
             //console.log('purchaseOrderEquipment.equipmentId: ', this.equipmentItems);
             //console.log('purchaseOrderEquipment: ', purchaseOrderEquipment);
         },
+        */
 
     });
 

@@ -23,24 +23,18 @@ if (Meteor.isClient) {
         },
     
         'click #equipment-save-btn': function(evt, tpl) {
-            event.preventDefault();
+            evt.preventDefault();
             console.log('purchaseOrderEquipmentAdd - click #equipment-save-btn');
             Session.set('addPurchaseOrderEquipment', false);
 
-            equipment              = equipmentFromTemplate(tpl);
-            purchaseOrderEquipment = purchaseOrderEquipmentFromTemplate(tpl);
-            purchaseOrderEquipment.equipment = equipment;
+            equipment                   = equipmentFromTemplate(tpl);
+            purchaseOrderEquipment      = purchaseOrderEquipmentFromTemplate(tpl);
             purchaseOrderEquipmentItems = Session.get('purchaseOrderEquipmentItems');
+            purchaseOrderEquipment.equipment = equipment;
+            purchaseOrderEquipment.idx       = purchaseOrderEquipmentItems.length;
             purchaseOrderEquipmentItems.push(purchaseOrderEquipment);
             Session.set('purchaseOrderEquipmentItems', purchaseOrderEquipmentItems);
             console.log('purchaseOrderEquipmentItems: ', Session.get('purchaseOrderEquipmentItems'));
-            
-            //purchaseOrderEquipment.purchaseOrderId = this._id || 0;
-            //purchaseOrderEquipment.equipmentId     = EquipmentCollection.insert(equipment);
-            //PurchaseOrderEquipmentCollection.insert(purchaseOrderEquipment);
-            //console.log('this._id || 0: ', this._id || 0);
-            //console.log('purchaseOrderEquipment.equipmentId: ', this.equipmentItems);
-            //console.log('purchaseOrderEquipment: ', purchaseOrderEquipment);
         }
 
     });

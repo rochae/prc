@@ -29,6 +29,17 @@ if (Meteor.isClient) {
             return Session.get('addPurchaseOrder');
         },
 
+        equipmentItem: function() {
+            console.log('purchaseOrderEquipmentDetail - equipmentItem');
+            if ((Session.get('editPurchaseOrder')) && (Session.get('editPurchaseOrderEquipment'))) {
+                console.log('findOne equipmentItem this.equipmentId: ', this.equipmentId);
+                console.log('FindOne equipmentItem: ', EquipmentCollection.findOne({_id : this.equipmentId}));
+                return EquipmentCollection.findOne({_id : this.equipmentId});
+            }
+            console.log('this.equipment', this.equipment);
+            return this.equipment || {};
+        },
+
     });
 
     Template.purchaseOrderEquipmentDetail.rendered = function() {

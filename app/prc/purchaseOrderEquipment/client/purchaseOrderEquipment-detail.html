@@ -20,28 +20,29 @@
       </select>
     </div>
   </div> 
-  <div class="row">
-    <div class="form-group col-md-5">
-      <label class="control-label" for="equipmentTag"> Equipment Tag </label>
-      <input class="form-control" type="text" id="equipmentTag" placeholder="Enter Equipment tag"
-             value="{{ equipmentTag }}"/>
-    </div>
-    <div class="form-group col-md-7">
-      <label class="control-label" for="equipmentCategory"> Equipment Category </label>
-      <select class="form-control" name="equipmentCategory" id="equipmentCategory" 
-              value="{{ equipment.category }}">
-        <option value="{{ equipmentCategory }}" disabled selected> Select Equipment Category </option>
-        {{#each equipmentCategoryItems }}
-          <option value="{{_name}}" {{ selectedEquipmentCategory ../equipment.category }}> {{ _name }} </option>
-        {{/each}}
-      </select>
-    </div>
-  </div>
+  {{#with equipmentItem }}
   <div class="row">
     <div class="form-group col-md-12">
       <label class="control-label" for="equipmentName"> Equipment Name </label>
       <input class="form-control" type="text" id="equipmentName" placeholder="Enter Equipment Name"
-             value="{{ equipment._name }}"/>
+             value="{{ _name }}"/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-md-5">
+      <label class="control-label" for="equipmentTag"> Equipment Tag </label>
+      <input class="form-control" type="text" id="equipmentTag" placeholder="Enter Equipment tag"
+             value="{{ ../equipmentTag }}"/>
+    </div>
+    <div class="form-group col-md-7">
+      <label class="control-label" for="equipmentCategory"> Equipment Category </label>
+      <select class="form-control" name="equipmentCategory" id="equipmentCategory" 
+              value="{{ category }}">
+        <option value="{{ equipmentCategory }}" disabled selected> Select Equipment Category </option>
+        {{#each equipmentCategoryItems }}
+          <option value="{{_name}}" {{ selectedEquipmentCategory ../category }}> {{ _name }} </option>
+        {{/each}}
+      </select>
     </div>
   </div>
   <div class="row">
@@ -52,9 +53,10 @@
                 placeholder="Enter Equipment Description" style="resize: none">{{ equipmentDescription }}</textarea>
       -->
       <input class="form-control" type="text" id="equipmentDescription" 
-             placeholder="Enter Equipment Description" value="{{ equipment._description }}"/>
+             placeholder="Enter Equipment Description" value="{{ _description }}"/>
     </div>
   </div>
+  {{/with}}
   <div class="row">
     <div class="form-group col-md-4">
       <label class="control-label" for="wbsNo"> WBS No. </label>
@@ -76,7 +78,7 @@
     <div class="form-group col-md-12">
       <label class="control-label" for="documentsLink"> Documents Link </label>
       <input class="form-control"  type="text" name="documentsLink" id="documentsLink" 
-             placeholder="Enter Equipment Documents Link" value="{{ equipment.documentsLink }}"/>
+             placeholder="Enter Equipment Documents Link" value="{{ documentsLink }}"/>
     </div>
   </div>
   <!--

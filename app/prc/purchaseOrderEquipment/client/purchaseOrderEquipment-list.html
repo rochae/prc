@@ -14,11 +14,12 @@
     <tbody>
       {{#each purchaseOrderEquipmentItems }}
         <tr class="purchaseOrderEquipmentItem">
+          {{> purchaseOrderEquipmentEdit }}
           <td><div class="text-center"> {{ item }} </div></td>
           <td><div class="text-center"> {{ quantity }} </div></td>
           <td><div class="text-center"> {{ unit }} </div></td>
           <td>
-            {{#with equipmentItem}}
+            {{#with equipmentItem }}
               <div class="row">
                 <div class="col-md-12"> {{ _name }} </div>
               </div>

@@ -5,27 +5,17 @@ if (Meteor.isClient) {
     // : - helpers
     Template.purchaseOrderEquipmentNavbar.helpers({
         
-        addEditPurchaseOrder: function() {
+        addPurchaseOrder: function() {
             //console.log('purchaseOrderEquipmentNavbar - addEditPurchaseOrder');
             return Session.get('addPurchaseOrder');
         },
 
         readonly: function() {
             //console.log('purchaseOrderEquipmentNavbar - readonly');
-            if (Session.get("addPurchaseOrderEquipment")) {
+            if (Session.get("addEditPurchaseOrderEquipment")) {
                 return "disabled";
             }
             return "";
-        },
-
-    });
-
-    // : - events
-    Template.purchaseOrderEquipmentHome.events({
-
-        'click #purchase-order-equipment-add-btn': function(e, t) {
-            console.log('purchaseOrderEquipmentHome - click #purchase-order-equipment-add-btn');
-            //Session.set('addPurchaseOrderEquipment', true);   
         },
 
     });

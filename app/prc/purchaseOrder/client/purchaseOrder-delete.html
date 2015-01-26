@@ -1,0 +1,21 @@
+<template name="purchaseOrderDelete">
+  <div class="row">
+    <div class="col-md-12 pull-right">
+      <div class="pull-right btn-toolbar btn-group-sm" role="group">
+        {{#if deletePurchaseOrder }}
+            <a href="{{cancelSaveLink}}" class="btn btn-default" role="button" id="purchase-order-delete-confirm-btn">
+              <strong class="text-danger text-muted">
+                <span class="fa fa-trash fa-lg fa-fw"></span> Delete Purchase Order 
+              </strong>
+            </a>
+        {{else}}
+          <a href="{{cancelSaveLink}}" class="btn btn-default" role="button" id="purchase-order-delete-btn">
+            <strong class="text-danger text-muted">
+              <span class="fa fa-remove fa-lg fa-fw"></span> Delete 
+            </strong>
+          </a>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</template>

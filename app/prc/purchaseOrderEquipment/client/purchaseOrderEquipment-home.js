@@ -2,19 +2,19 @@
 
 if (Meteor.isClient) {
 
-    // : - helpers
-    Template.purchaseOrderEquipmentHome.helpers({
+    // : - events
+    Template.purchaseOrderEquipmentHome.events({
 
-        addPurchaseOrderEquipment: function() {
-            console.log('purchaseOrderEquipmentHome - addPurchaseOrderEquipment');
-            return Session.get('addPurchaseOrderEquipment');
+        'click #purchase-order-equipment-add-btn': function(e, t) {
+            console.log('purchaseOrderEquipmentHome - click #purchase-order-equipment-add-btn');
+            Session.set('addPurchaseOrderEquipment', true);   
         },
 
-        editPurchaseOrderEquipment: function() {
-            console.log('purchaseOrderEquipmentHome - editPurchaseOrderEquipment');
-            return Session.get('editPurchaseOrderEquipment');
+        'dblclick tr.purchaseOrderEquipmentItem': function(evt, tpl) {
+            console.log('purchaseOrderEquipmentHome - dblclick tr.purchaseOrderEquipmentItem')
+            Session.set('editPurchaseOrderEquipment', true);
         },
 
-    });
+    }); 
 
 } //: - Meteor.isClient
