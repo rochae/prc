@@ -5,9 +5,9 @@ if (Meteor.isClient) {
     // : - helpers
     Template.purchaseOrderEdit.helpers({
         
-        addPurchaseOrder: function() {
+        editPurchaseOrder: function() {
             //console.log('purchaseOrderEdit - addEditPurchaseOrder');
-            return Session.get('addPurchaseOrder');
+            return ((Session.get('editPurchaseOrder')) && (Session.get('addPurchaseOrder')));
         },
 
         viewPurchaseOrder: function() {
@@ -29,17 +29,13 @@ if (Meteor.isClient) {
             //console.log('purchaseOrderEdit - click #purchase-order-save-btn');
             //e.preventDefault();
             Session.set('addPurchaseOrder', false);
-
             purchaseOrder = purchaseOrderFromTemplate(tpl);
-            //console.log('purchaseOrderEdit - click #purchase-order-save-btn - purchaseOrder: ', purchaseOrder);
             PurchaseOrderCollection.update({_id: this._id}, purchaseOrder);
-            //console.log(PurchaseOrders.findOne({_id: this._id}));
         },
 
         'click #purchase-order-edit-btn': function(evt, tpl) {
             //console.log('purchaseOrderEdit - purchase-order-edit-btn');
             Session.set('addPurchaseOrder', true);
-
         },
 
     });

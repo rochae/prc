@@ -14,7 +14,7 @@
       <label class="control-label" for="unit"> Unit </label>
       <select class="form-control" name="unit" id="unit" value="{{ unit }}">
         <option value="" disabled>Select Unit</option>
-        {{#each unitItem }}
+        {{#each unitItems }}
           <option value="{{ unitName }}" {{ selectedUnit ../unit }}> {{ unitName }} </option>
         {{/each}}
       </select>
@@ -40,7 +40,7 @@
               value="{{ category }}">
         <option value="{{ equipmentCategory }}" disabled selected> Select Equipment Category </option>
         {{#each equipmentCategoryItems }}
-          <option value="{{_name}}" {{ selectedEquipmentCategory ../category }}> {{ _name }} </option>
+          <option value="{{ categoryName }}" {{ selectedEquipmentCategory ../category }}> {{ categoryName }} </option>
         {{/each}}
       </select>
     </div>

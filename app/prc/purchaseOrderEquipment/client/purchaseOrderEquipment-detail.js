@@ -5,21 +5,21 @@ if (Meteor.isClient) {
     Template.purchaseOrderEquipmentDetail.helpers({
 
         equipmentCategoryItems: function() {
-            return EquipmentCategoryCollection.find({}, { sort: { _name : 1 }});
+            return EquipmentCategoryCollection.find({}, { sort: { categoryName : 1 }});
         },
 
-        selectedEquipmentCategory: function (category) {
-            if (category === this._name) {
+        selectedEquipmentCategory: function (categoryName) {
+            if (categoryName === this.categoryName) {
                 return 'selected'
             }
         },
 
-        unitItem: function() {
+        unitItems: function() {
             return [ { unitName : "Each" }, { unitName : "Lot" }, ];
         },
 
-        selectedUnit: function (unit) {
-            if (unit === this.unitName) {
+        selectedUnit: function (unitName) {
+            if (unitName === this.unitName) {
                 return 'selected'
             }
         },
@@ -30,20 +30,15 @@ if (Meteor.isClient) {
         },
 
         equipmentItem: function() {
-            console.log('purchaseOrderEquipmentDetail - equipmentItem');
-            if ((Session.get('editPurchaseOrder')) && (Session.get('editPurchaseOrderEquipment'))) {
-                console.log('findOne equipmentItem this.equipmentId: ', this.equipmentId);
-                console.log('FindOne equipmentItem: ', EquipmentCollection.findOne({_id : this.equipmentId}));
-                return EquipmentCollection.findOne({_id : this.equipmentId});
-            }
-            console.log('this.equipment', this.equipment);
-            return this.equipment || {};
+            //console.log('purchaseOrderEquipmentDetail - equipmentItem');
+            console.log('equipmentItem: ', EquipmentCollection.findOne({_id : this.equipmentId}));
+            return EquipmentCollection.findOne({_id : this.equipmentId}) || {};
         },
 
     });
 
     Template.purchaseOrderEquipmentDetail.rendered = function() {
-        console.log('purchaseOrderEquipmentDetail.rendered - this.$(input)[0]:', this.$('input')[0])
+        //console.log('purchaseOrderEquipmentDetail.rendered - this.$(input)[0]:', this.$('input')[0])
         this.$('input')[0].focus() 
     };
 

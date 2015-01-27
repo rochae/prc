@@ -7,7 +7,7 @@ if (Meteor.isClient) {
 
         readonly: function() {
             //console.log('purchaseOrderDetail - readonly');
-            if (Session.get("addPurchaseOrder")){
+            if (Session.get("addPurchaseOrder")) {
                 return '';
             }
             return 'disabled';

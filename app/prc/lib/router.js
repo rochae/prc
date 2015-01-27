@@ -48,9 +48,8 @@ Router.route('/purchaseOrder/add', function () {
     data: function() {
       purchaseOrder = new PurchaseOrder();
       //if (purchaseOrder) {
-        purchaseOrder.market = "Domestic"; 
+      purchaseOrder.market = "Domestic"; 
       //}
-      Session.set( 'purchaseOrderEquipmentItems', []);
       return purchaseOrder;
     }
   });
@@ -63,22 +62,9 @@ Router.route('/purchaseOrder/edit/:_id', function () {
   Session.set('addPurchaseOrderEquipment',  false);
   Session.set('editPurchaseOrderEquipment', false);
   
-  //purchaseOrderEquipmentItems = PurchaseOrderEquipmentCollection.find({purchaseOrderId : this.params._id}).fetch();
-  //purchaseOrderEquipmentItems.forEach(function(elem, idx, arry) {
-    //equipment      = PurchaseOrderEquipmentCollection.findOne({_id : elem.equipmentId});
-    //elem.equipment = equipment;
-  //});
-  //Session.set('purchaseOrderEquipmentItems', purchaseOrderEquipmentItems);
-  
   this.render('purchaseOrderEdit', {
     data: function() {
       purchaseOrder = PurchaseOrderCollection.findOne({_id : this.params._id});
-      //console.log("1. purchaseOrder : ", purchaseOrder);
-      //if ( purchaseOrder ) {
-        //console.log("2. purchaseOrder : ", purchaseOrder);
-        //purchaseOrder.equipmentItems = [];
-        //console.log("3. purchaseOrder : ", purchaseOrder);
-      //}
       return purchaseOrder;
     }
   });

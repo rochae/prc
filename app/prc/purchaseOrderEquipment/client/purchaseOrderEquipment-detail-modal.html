@@ -1,0 +1,33 @@
+<template name="purchaseOrderEquipmentDetailModal">
+  <div class="modal show" id="equipmentModal" tabindex="-1" role="dialog" 
+       aria-labelledby="equipmentModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <strong class="modal-title text-primary text-muted" id="equipmentModalLabel">
+            Equipment
+          </strong>
+        </div>
+        <div class="modal-body">
+          {{> purchaseOrderEquipmentDetail }}
+        </div>
+        <div class="modal-footer">
+          {{#if editPurchaseOrderEquipment }}
+            <button class="btn btn-default pull-left" type="button" id='equipment-delete-btn' data-dismiss="modal"> 
+              <strong class="text-danger text-muted"> <span class="fa fa-trash fa-lg fa-fw"></span> Delete </strong>
+            </button>
+          {{/if}}
+          <button class="btn btn-default" type="button" id='equipment-close-btn' data-dismiss="modal">
+            <span class="fa fa-remove fa-lg"></span>  Close
+          </button>
+          <button class="btn btn-primary" type="button" id='equipment-save-btn'> 
+            <span class="fa fa-save fa-lg fa-fw"></span> Save  
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

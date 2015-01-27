@@ -6,10 +6,11 @@ if (Meteor.isClient) {
     Template.purchaseOrderEquipmentAdd.helpers({
 
         showModal: function() {
-            console.log('purchaseOrderEquipmentAdd - showModal');
-            if (Session.get('addPurchaseOrderEquipment')) {
-                return "show";
-            }
+            //console.log('purchaseOrderEquipmentAdd - showModal');
+            return (Session.get('addPurchaseOrderEquipment'));
+            //if (Session.get('addPurchaseOrderEquipment')) {
+            //    return "show";
+            //}
         },
 
     });        
@@ -18,23 +19,24 @@ if (Meteor.isClient) {
     Template.purchaseOrderEquipmentAdd.events({
 
         'click .close, click #equipment-close-btn': function(evt, tpl) {
-            console.log('purchaseOrderEquipmentAdd - click .close, click #equipment-close-btn');
+            //console.log('purchaseOrderEquipmentAdd - click .close, click #equipment-close-btn');
             Session.set('addPurchaseOrderEquipment', false);
         },
     
         'click #equipment-save-btn': function(evt, tpl) {
             evt.preventDefault();
-            console.log('purchaseOrderEquipmentAdd - click #equipment-save-btn');
+            //console.log('purchaseOrderEquipmentAdd - click #equipment-save-btn');
             Session.set('addPurchaseOrderEquipment', false);
 
-            equipment                   = equipmentFromTemplate(tpl);
-            purchaseOrderEquipment      = purchaseOrderEquipmentFromTemplate(tpl);
-            purchaseOrderEquipmentItems = Session.get('purchaseOrderEquipmentItems');
-            purchaseOrderEquipment.equipment = equipment;
-            purchaseOrderEquipment.idx       = purchaseOrderEquipmentItems.length;
-            purchaseOrderEquipmentItems.push(purchaseOrderEquipment);
-            Session.set('purchaseOrderEquipmentItems', purchaseOrderEquipmentItems);
-            console.log('purchaseOrderEquipmentItems: ', Session.get('purchaseOrderEquipmentItems'));
+            equipment              = equipmentFromTemplate(tpl);
+            purchaseOrderEquipment = purchaseOrderEquipmentFromTemplate(tpl);
+
+            equipmentId = EquipmentCollection.insert(equipment);
+            
+            purchaseOrderEquipment.purchaseOrderId = this._id;
+            purchaseOrderEquipment.equipmentId     = equipmentId;
+            
+            PurchaseOrderEquipmentCollection.insert(purchaseOrderEquipment);
         }
 
     });
