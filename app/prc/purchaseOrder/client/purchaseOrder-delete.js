@@ -16,13 +16,18 @@ if (Meteor.isClient) {
     Template.purchaseOrderDelete.events({
         
         'click #purchase-order-delete-btn': function(evt, tpl) {
-            console.log('purchaseOrderDelete - click #purchase-order-delete-btn');
+            //console.log('purchaseOrderDelete - click #purchase-order-delete-btn');
             Session.set('deletePurchaseOrder', true);
+        },
+
+        'click #purchase-order-delete-cancel-btn': function(evt, tpl) {
+            //console.log('purchaseOrderDelete - click #purchase-order-delete-btn');
+            Session.set('deletePurchaseOrder', false);
         },
 
 
         'click #purchase-order-delete-confirm-btn': function(evt, tpl) {
-            console.log('purchaseOrderDelete - purchase-order-delete-confirm-btn');
+            //console.log('purchaseOrderDelete - purchase-order-delete-confirm-btn');
             Session.set('deletePurchaseOrder', false);
 
             console.log('PurchaserOrder._id: ', this._id)

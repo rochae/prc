@@ -8,6 +8,7 @@ if (Meteor.isClient) {
         'click #purchase-order-cancel-btn': function(evt, tpl) {
             //console.log('purchaseOrderAdd - click add purchase-order-cancel-btn');
             Session.set('addPurchaseOrder', false);
+            Router.go('/purchaseOrder', {});
         },
         
         'click #purchase-order-save-btn': function(evt, tpl) {
@@ -38,6 +39,17 @@ if (Meteor.isClient) {
             //console.log('this._id || 0: ', this._id || 0);
             //console.log('purchaseOrderEquipment.equipmentId: ', this.equipmentItems);
             //console.log('purchaseOrderEquipment: ', purchaseOrderEquipment);
+        },
+
+        'click #purchase-order-next-btn': function(evt, tpl) {
+            //console.log('purchaseOrderAdd - click add purchase-order-save-btn');
+            //evt.preventDefault();
+            Session.set('addPurchaseOrder', false);
+
+            purchaseOrder   = purchaseOrderFromTemplate(tpl);
+            purchaseOrderId = PurchaseOrderCollection.insert(purchaseOrder);
+            console.log('insert purchaseOrder', PurchaseOrderCollection.findOne({_id : purchaseOrderId}));
+            Router.go('/purchaseOrder/edit/' + purchaseOrderId, {});
         },
 
     });

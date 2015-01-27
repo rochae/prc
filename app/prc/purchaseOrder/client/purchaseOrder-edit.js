@@ -10,6 +10,11 @@ if (Meteor.isClient) {
             return Session.get('addPurchaseOrder');
         },
 
+        viewPurchaseOrder: function() {
+            //console.log('purchaseOrderEdit - addEditPurchaseOrder');
+            return ((Session.get('editPurchaseOrder')) && (! Session.get('addPurchaseOrder')));
+        },
+
     });
 
     // : - events
