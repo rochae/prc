@@ -16,16 +16,11 @@
         </div>
         <div class="modal-footer">
           {{#if editPurchaseOrderEquipment }}
-            <button class="btn btn-default pull-left" type="button" id='equipment-delete-btn' data-dismiss="modal"> 
+            <button class="btn btn-default pull-left" type="button" id='purchase-order-equipment-delete-btn'> 
               <strong class="text-danger text-muted"> <span class="fa fa-trash fa-lg fa-fw"></span> Delete </strong>
             </button>
           {{/if}}
-          <button class="btn btn-default" type="button" id='equipment-close-btn' data-dismiss="modal">
-            <span class="fa fa-remove fa-lg"></span>  Close
-          </button>
-          <button class="btn btn-primary" type="button" id='equipment-save-btn'> 
-            <span class="fa fa-save fa-lg fa-fw"></span> Save  
-          </button>
+          {{> purchaseOrderEquipmentCancelSave }}
         </div>
       </div>
     </div>

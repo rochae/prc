@@ -7,7 +7,8 @@ if (Meteor.isClient) {
 
         'click #purchase-order-equipment-add-btn': function(e, t) {
             //console.log('purchaseOrderEquipmentHome - click #purchase-order-equipment-add-btn');
-            Session.set('addPurchaseOrderEquipment', true);   
+            Session.set('addPurchaseOrderEquipment', true);
+            Session.set('purchaseOrderEquipmentId', 0);  
         },
 
         'dblclick tr.purchaseOrderEquipmentItem': function(evt, tpl) {

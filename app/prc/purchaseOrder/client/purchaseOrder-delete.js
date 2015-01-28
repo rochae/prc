@@ -27,17 +27,26 @@ if (Meteor.isClient) {
 
         'click #purchase-order-delete-confirm-btn': function(evt, tpl) {
             //console.log('purchaseOrderDelete - purchase-order-delete-confirm-btn');
-            //console.log('PurchaserOrder._id: ', this._id)
+            //console.log('Delete PurchaserOrderId: ', this._id)
             Session.set('deletePurchaseOrder', false);
+            
             purchaseOrderEquipmentItems = PurchaseOrderEquipmentCollection.find({purchaseOrderId : this._id});
-            purchaseOrderEquipmentItems.forEach(function(elem, idx, arry) {
-                console.log('PurchaseorderEquipment._id: ', elem._id);
-                console.log('PurchaseorderEquipment.purchaseOrderId: ', elem.purchaseOrderId);
-                console.log('PurchaseorderEquipment.equipment: ', elem.equipment);
-                EquipmentCollection.findOne({_id : elem.equipmentId})
-                console.log('insert Equipment', EquipmentCollection.findOne({_id : elem.equipmentId}));
-                
-                });
+            //console.log('purchaseOrderEquipmentItems Length: ', purchaseOrderEquipmentItems.fetch().length);
+            if (purchaseOrderEquipmentItems.fetch().length) {
+                //console.log('purchaseOrderEquipmentItems: ', purchaseOrderEquipmentItems.fetch());
+                purchaseOrderEquipmentItems.fetch().forEach(function(elem, idx, arry) {
+                    //console.log('elem._id: ', elem._id);
+                    //console.log('elem.purchaseOrderId: ', elem.purchaseOrderId);
+                    //console.log('elem.equipmentId: ', elem.equipmentId);
+                    //equipment = EquipmentCollection.findOne({_id : elem.equipmentId})
+                    EquipmentCollection.remove({_id : elem.equipmentId});
+                    //console.log('Removed Equipment: ', elem.equipmentId, res);
+                    PurchaseOrderEquipmentCollection.remove({_id : elem._id});
+                    //console.log('Removed PurchaseOrderEquipment: ', elem._id, res);
+                    });
+            }
+            PurchaseOrderCollection.remove({_id : this._id});
+            //console.log('Removed PurchaserOrderId: ', this._id)
             Router.go('/purchaseOrder');
         },
 

@@ -18,12 +18,12 @@ if (Meteor.isClient) {
     // : - events
     Template.purchaseOrderEquipmentAdd.events({
 
-        'click .close, click #equipment-close-btn': function(evt, tpl) {
+        'click .close, click #purchase-order-equipment-close-btn': function(evt, tpl) {
             //console.log('purchaseOrderEquipmentAdd - click .close, click #equipment-close-btn');
             Session.set('addPurchaseOrderEquipment', false);
         },
     
-        'click #equipment-save-btn': function(evt, tpl) {
+        'click #purchase-order-equipment-save-btn': function(evt, tpl) {
             evt.preventDefault();
             //console.log('purchaseOrderEquipmentAdd - click #equipment-save-btn');
             Session.set('addPurchaseOrderEquipment', false);

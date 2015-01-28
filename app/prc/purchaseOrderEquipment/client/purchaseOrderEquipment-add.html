@@ -1,5 +1,25 @@
 <template name="purchaseOrderEquipmentAdd">
   {{#if showModal }}
-    {{> purchaseOrderEquipmentDetailModal }}
+    <div class="modal show" id="purchaseOrderEquipmentModal" tabindex="-1" role="dialog" 
+         aria-labelledby="purchaseOrderEquipmentModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <strong class="modal-title text-primary text-muted" id="purchaseOrderEquipmentModalLabel">
+              Equipment <span class="divider"> / </span> Add
+            </strong>
+          </div>
+          <div class="modal-body">
+            {{> purchaseOrderEquipmentDetail }}
+          </div>
+          <div class="modal-footer">
+            {{> purchaseOrderEquipmentCloseSave }}
+          </div>
+        </div>
+      </div>
+    </div>
   {{/if}}
 </template>

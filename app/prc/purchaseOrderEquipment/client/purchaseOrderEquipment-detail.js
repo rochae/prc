@@ -25,15 +25,16 @@ if (Meteor.isClient) {
         },
 
         editPurchaseOrder: function() {
-            //console.log('purchaseOrderNavbar - helper -selectedPurchasedOrderStatus');
             return Session.get('addPurchaseOrder');
         },
 
         equipmentItem: function() {
             //console.log('purchaseOrderEquipmentDetail - equipmentItem');
-            console.log('equipmentItem: ', EquipmentCollection.findOne({_id : this.equipmentId}));
+            //console.log('equipmentItem: ', EquipmentCollection.findOne({_id : this.equipmentId}) || {});
             return EquipmentCollection.findOne({_id : this.equipmentId}) || {};
         },
+
+
 
     });
 
