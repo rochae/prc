@@ -13,8 +13,8 @@
     </thead>
     <tbody>
       {{#each purchaseOrderEquipmentItems }}
+      {{> purchaseOrderEquipmentEdit }}
         <tr class="purchaseOrderEquipmentItem">
-        {{> purchaseOrderEquipmentEdit }}
           <td><div class="text-center"> {{ item }} </div></td>
           <td><div class="text-center"> {{ quantity }} </div></td>
           <td><div class="text-center"> {{ unit }} </div></td>

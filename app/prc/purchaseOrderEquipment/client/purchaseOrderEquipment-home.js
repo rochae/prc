@@ -13,9 +13,11 @@ if (Meteor.isClient) {
 
         'dblclick tr.purchaseOrderEquipmentItem': function(evt, tpl) {
             //console.log('purchaseOrderEquipmentHome - dblclick tr.purchaseOrderEquipmentItem')
+            if (Session.get('addPurchaseOrder') ) {
+                return;
+            }
             Session.set('editPurchaseOrderEquipment', true);
             Session.set('purchaseOrderEquipmentId', this._id);
-            return this;
         },
 
     }); 
