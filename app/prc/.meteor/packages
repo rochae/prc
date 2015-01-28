@@ -10,3 +10,5 @@ linto:fontawesome
 iron:router
 
 twbs:bootstrap
+tomi:upload-server
+tomi:upload-jquery

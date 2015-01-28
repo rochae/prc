@@ -81,85 +81,10 @@
              placeholder="Enter Equipment Documents Link" value="{{ documentsLink }}"/>
     </div>
   </div>
-  <!--
   <div class="row">
-    <div class="form-group col-md-8">
-      <label class="control-label" for="datasheet"> Attached Datasheet </label>
-      <input class="form-control"  type="text" name="datasheet" id="datasheet" 
-             placeholder="Attache Equipment Datasheet File" value="{{ equipment.datasheet }}"/>
+    <div class="form-group col-md-12">
+      <label class="control-label"> Attached Datasheet </label>
+      {{> upload_bootstrap }}
     </div>
   </div>
-  -->
 </template>
-
-<!--
-
-<table class="table table-condensed">
-    <tbody>
-      <tr>
-        <td class="colspan-1">
-          <input class="form-control" type="text" id="item" size="4" placeholder="Item"/>
-        </td>
-        <td class="colspan-1">
-          <input class="form-control" type="text" id="quantity" size="4" placeholder="Qty."/>
-        </td>
-        <td class="colspan-1">
-          <input class="form-control" type="text" id="unit" size="4" placeholder="Unit"/>
-        </td>
-        <td class="colspan-6">
-          <div class="row">
-            <div class="col-md-12">
-              <input class="form-control" type="text" id="name" size="100" placeholder="Enter Equipment Name"/>
-            </div>
-          </div>
-          <div class="row" style="padding-top: 5px;">
-            <div class="col-md-5">
-              <input class="form-control" type="text" id="tag" placeholder="Enter Equipment Tag"/>
-            </div>
-            <div class="col-md-7">
-              <select class="form-control" name="equipmentCategory" id="equipmentCategory">
-                <option value="" selected disabled> Select Equipment Category </option>
-                {{# each equipmentCategory }}
-                  <option value="{{name}}"> {{ name }} </option>
-                {{/each}}
-              </select>
-            </div>
-          </div>
-          <div class="row" style="padding-top: 5px;">
-            <div class="col-md-12">
-              <textarea class="form-control" id="description" rows="3" placeholder="Enter Equipment Description" 
-                        style="resize: none"></textarea>
-            </div>
-          </div>
-          <div class="row" style="padding-top: 5px;">
-            <div class="col-md-12">
-              <input class="form-control" type="text" id="documentLink" placeholder="Enter Document Link"/>
-            </div>
-          </div>
-          <div class="row" style="padding-top: 5px;">
-            <div class="col-md-10">
-              <input class="form-control" type="text" id="document" placeholder="Upload Document"/>
-            </div>
-            <div class="col-md-2">
-              <div class="btn-toolbar btn-group-sm pull-right" role="group">
-                <a class="btn btn-default" role="button" id="purchase-order-eq-add-btn">
-                  <strong class="text-muted"><span class="fa fa-upload fa-fw"></span> Upload </strong>
-                </a>
-              </div>
-            </div>
-          </div>
-        </td>
-        <td class="colspan-1">
-          <input class="form-control" type="text" id="wbsNo" size="15" placeholder="WBS No."/>
-        </td>
-        <td class="colspan-1">
-          <input class="form-control" type="text" id="unitPrice" size="15" placeholder="Unit Price"/>
-        </td>
-        <td class="colspan-1">
-          <input class="form-control" type="text" id="extendedPrice" size="15" placeholder="Ext. Price"/>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
-  -->
