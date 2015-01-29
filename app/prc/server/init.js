@@ -11,13 +11,19 @@ if (Meteor.isServer) {
                 // create a sub-directory in the uploadDir based on the content type (e.g. 'images')
                 console.log('getDirectory fileInfo: ', fileInfo);
                 console.log('getDirectory formData: ', formData);
-                return formData.purchaseOrderId;
+                filePath = formData.purchaseOrderId + '/' + formData.purchaseOrderEquipmentId;
+                return filePath;
             },
+            /* 
             finished: function(fileInfo, formFields) {
-                // perform a disk operation
-              console.log('finished fileInfo: ', fileInfo);
-              console.log('finished formFields: ', formFields);
+                //pathArray = formFields.split('/');
+                //pruchaseOrderId = pathArray[0];
+                //purchaseOrderEquipmentId = pathArray[1];
+                //console.log('pruchaseOrderId: ', pruchaseOrderId);
+                //console.log('purchaseOrderEquipmentId: ', purchaseOrderEquipmentId);
+                //PurchaseOrderEquipmentCollection.update({_id : purchaseOrderEquipmentId}, {$set : {datasheet : fileInfo }});
             }
+            */
         });
     });
 

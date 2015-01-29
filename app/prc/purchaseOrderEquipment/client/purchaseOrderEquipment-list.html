@@ -42,7 +42,16 @@
             </div>
             <div class="row">
               <div class="col-md-12">
-                {{ datasheet }}
+                {{#if datasheet }}
+                  <div class="input-group">
+                    <input class="form-control" type="text" placeholder="DatasheetFile" aria-describedby="datasheet">
+                    <span class="input-group-addon" id="datasheet">@example.com</span>
+                  </div>
+                  {{ datasheet }}
+                {{else}}
+                  <h4 class="text-muted"> Datasheet </h4>
+                  {{> dropzone multiple=false contentType="datasheet" formData=myFormData }}
+                {{/if}}
               </div>
             </div>
           </td>

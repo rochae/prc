@@ -24,6 +24,17 @@ if (Meteor.isClient) {
             }
         },
 
+        purchaseLocationItems: function() {
+            return [ {purchaseLocationId : 'purchaseLocationOnshore',  purchaseLocationName : 'Onshore'},
+                     {purchaseLocationId : 'purchaseLocationOffshore', purchaseLocationName : 'Offshore'}, ];
+        },
+
+        selectedPurchaseLocation: function (purchaseLocation) {
+            if (purchaseLocation === this.purchaseLocationName) {
+                return 'selected'
+            }
+        },
+
     });
 
     Template.purchaseOrderDetail.rendered = function() {

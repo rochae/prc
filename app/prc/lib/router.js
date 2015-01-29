@@ -48,7 +48,8 @@ Router.route('/purchaseOrder/add', function () {
     data: function() {
       purchaseOrder = new PurchaseOrder();
       //if (purchaseOrder) {
-      purchaseOrder.market = "Domestic"; 
+      purchaseOrder.market           = "Domestic";
+      purchaseOrder.purchaseLocation = "Onshore";
       //}
       return purchaseOrder;
     }

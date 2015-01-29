@@ -34,6 +34,7 @@ if (Meteor.isClient) {
             return EquipmentCollection.findOne({_id : this.equipmentId}) || {};
         },
 
+        /* ---
         myFormData : function() {
             console.log('myFormData this._id: ', this._id);
             console.log('this._id: ', this._id);
@@ -43,7 +44,7 @@ if (Meteor.isClient) {
     
             return { purchaseOrderId : this._id, };
         }
-
+        --- */
     });
 
     Template.purchaseOrderEquipmentDetail.rendered = function() {

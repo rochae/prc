@@ -8,6 +8,7 @@ PurchaseOrder = function() {
     this.purchaseOrderDescription = null; 
     this.projectNo                = null;
     this.projectName              = null;
+    this.slReferenceNo            = null;
     this.vendor                   = null;
     this.buyer                    = null; 
     this.purchaseLocation         = null; 
@@ -38,9 +39,9 @@ purchaseOrderFromTemplate = function(tpl) {
     purchaseOrder.purchaseOrderDescription = tpl.find('#purchaseOrderDescription').value;
     purchaseOrder.projectNo                = tpl.find('#projectNo').value;
     purchaseOrder.projectName              = tpl.find('#projectName').value;
+    purchaseOrder.slReferenceNo            = tpl.find('#slReferenceNo').value;
     purchaseOrder.vendor                   = tpl.find('#vendor').value;
     purchaseOrder.buyer                    = tpl.find('#buyer').value;
-    purchaseOrder.purchaseLocation         = tpl.find('#purchaseLocation').value;
     purchaseOrder.pointOfOrigin            = tpl.find('#pointOfOrigin').value;
     purchaseOrder.weeksDeliverQuoted       = tpl.find('#weeksDeliverQuoted').value;
     purchaseOrder.weeksDeliverActual       = tpl.find('#weeksDeliverActual').value;
@@ -51,6 +52,12 @@ purchaseOrderFromTemplate = function(tpl) {
     }
     else {
         purchaseOrder.market = tpl.find('#marketInternational').value;
+    }
+    if (purchaseLocationOnshore.checked){
+        purchaseOrder.purchaseLocation = purchaseLocationOnshore.value;
+    }
+    else {
+        purchaseOrder.purchaseLocation = tpl.find('#purchaseLocationOffshore').value;
     }
     return purchaseOrder;
 };
