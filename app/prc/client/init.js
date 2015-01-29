@@ -7,6 +7,7 @@ if (Meteor.isClient) {
         Uploader.finished = function(fileInfo, templateContext) {
             console.log('Uploader fileInfo: ', fileInfo);
             console.log('Uploader templateContext: ', templateContext);
+            Session.set('datasheetPath', templateContext.path);
         };
     });
 

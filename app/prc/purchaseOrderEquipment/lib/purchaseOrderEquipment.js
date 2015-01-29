@@ -1,8 +1,8 @@
 PurchaseOrderEquipmentCollection = new Mongo.Collection("purchaseOrderEquipment");
 
 PurchaseOrderEquipment = function() {
-    this.purchaseOrderId = 0;
-    this.equipmentId     = 0;
+    this.purchaseOrderId = null;
+    this.equipmentId     = null;
     this.item            = null;
     this.quantity        = null;
     this.unit            = null;
@@ -24,6 +24,6 @@ purchaseOrderEquipmentFromTemplate = function(tpl) {
     purchaseOrderEquipment.priceUnit              = tpl.find('#priceUnit').value;
     purchaseOrderEquipment.priceExtended          = tpl.find('#priceExtended').value;
     purchaseOrderEquipment.documentsLink          = tpl.find('#documentsLink').value;
-    console.log('tpl.find', tpl.find() )
+    purchaseOrderEquipment.datasheet              = Session.get('datasheetPath');
     return purchaseOrderEquipment;
 };
