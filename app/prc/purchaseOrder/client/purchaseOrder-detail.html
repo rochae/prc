@@ -8,19 +8,6 @@
             <input class="form-control"  type="text" name="projectName" id="projectName" 
                    placeholder="Enter Project Description" value="{{ projectName }}"/>
           </div>
-          
-        </div>
-        <div class="row">
-          <div class="form-group col-md-6">
-            <label class="control-label" for="purchaseOrderNo"> Purchase Order No. </label>
-            <input class="form-control"  type="text" name="purchaseOrderNo" id="purchaseOrderNo" 
-                   placeholder="Enter Purchase Order No." value="{{ purchaseOrderNo }}"/>
-          </div>
-          <div class="form-group col-md-6">
-            <label class="control-label" for="slReferenceNo"> SL Reference No. </label>
-            <input class="form-control"  type="text" name="slReferenceNo" id="slReferenceNo" 
-                   placeholder="Enter SL Reference No." value="{{ slReferenceNo }}"/>
-          </div>
         </div>
       </div>
       <div class="col-md-6">
@@ -36,41 +23,42 @@
                    value="{{ purchaseOrderDate }}"/>
           </div> 
         </div>
-        <div class="row">
-          <div class="form-group col-md-12">
-            <label class="control-label" for="purchaseOrderDescription"> Description </label>
-            <input class="form-control"  type="text" name="purchaseOrderDescription" id="purchaseOrderDescription" 
-                   placeholder="Enter Purchase Order Description" value="{{ purchaseOrderDescription }}"/>
-          </div>
-           
-        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-md-3">
+        <label class="control-label" for="purchaseOrderNo"> Purchase Order No. </label>
+        <input class="form-control"  type="text" name="purchaseOrderNo" id="purchaseOrderNo" 
+               placeholder="Enter Purchase Order No." value="{{ purchaseOrderNo }}"/>
+      </div>
+      <div class="form-group col-md-3">
+        <label class="control-label" for="slReferenceNo"> SL Reference No. </label>
+        <input class="form-control"  type="text" name="slReferenceNo" id="slReferenceNo" 
+               placeholder="Enter SL Reference No." value="{{ slReferenceNo }}"/>
+      </div>
+      <div class="form-group col-md-6">
+        <label class="control-label" for="purchaseOrderDescription"> Description </label>
+        <input class="form-control"  type="text" name="purchaseOrderDescription" id="purchaseOrderDescription" 
+               placeholder="Enter Purchase Order Description" value="{{ purchaseOrderDescription }}"/>
       </div>
     </div>
     <div class="row" style="padding-top: 20px">
-      <div class="col-md-6">
-        <div class="row">
-          <div class="form-group col-md-12">
-            <label class="control-label" for="vendor"> Vendor </label>
-            <input class="form-control"  type="text" name="vendor" id="vendor" 
-                   placeholder="Enter Vendor" value="{{ vendor }}"/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="form-group col-md-12">
-            <label class="control-label" for="pointOfOrigin"> Point of Origin </label>
-            <input class="form-control"  type="text" name="pointOfOrigin" id="pointOfOrigin"  
-                   placeholder="Enter Point of Origin" value="{{ pointOfOrigin }}"/>
-          </div>
-        </div>
+      <div class="form-group col-md-6">
+        <label class="control-label" for="vendor"> Vendor </label>
+        <input class="form-control"  type="text" name="vendor" id="vendor" 
+               placeholder="Enter Vendor" value="{{ vendor }}"/>
       </div>
-      <div class="col-md-6">
-        <div class="row">
-          <div class="form-group col-md-12">
-            <label class="control-label" for="buyer"> Buyer </label>
-            <input class="form-control"  type="text" name="buyer" id="buyer" 
-                   placeholder="Enter Buyer" value="{{ buyer }}"/>
-          </div>
-        </div>
+      <div class="form-group col-md-6">
+        <label class="control-label" for="buyer"> Buyer </label>
+        <input class="form-control"  type="text" name="buyer" id="buyer" 
+               placeholder="Enter Buyer" value="{{ buyer }}"/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label class="control-label" for="pointOfOrigin"> Point of Origin </label>
+        <input class="form-control"  type="text" name="pointOfOrigin" id="pointOfOrigin"  
+               placeholder="Enter Point of Origin" value="{{ pointOfOrigin }}"/>
       </div>
     </div>
     <div class="row">
@@ -94,29 +82,37 @@
           </div>
         </div>
       </div>
-      <div class="col-md-2 col-md-offset-2">
-        <legend><h4 class="text-muted"> Market </h4></legend>
-        <div class="radio">
-          {{#each marketItems }}
-            <label class="radio">
-              <input type="radio" name="market" id="{{ marketId }}" checked="{{ selectedMarket ../market }}" 
-                     value="{{marketName}}"> {{ marketName }}
-            </label>
-          {{/each}}
+      <div class="col-md-2">
+        <legend><h4 class="text-muted"> Weeks Calc </h4></legend>
+      </div>
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-4">
+            <legend><h4 class="text-muted"> Market </h4></legend>
+            <div class="radio">
+              {{#each marketItems }}
+                <label class="radio">
+                  <input type="radio" name="market" id="{{ marketId }}" 
+                         checked="{{ selectedMarket ../market }}" 
+                         value="{{marketName}}"> {{ marketName }}
+                </label>
+              {{/each}}
+            </div>
+          </div>
+          <div class="col-md-5 col-md-offset-1">
+            <legend><h4 class="text-muted"> Purchase Location </h4></legend>
+            <div class="radio">
+              {{#each purchaseLocationItems }}
+                <label class="radio">
+                  <input type="radio" name="purchaseLocation" id="{{ purchaseLocationId }}" 
+                         checked="{{ selectedPurchaseLocation ../purchaseLocation }}" 
+                         value="{{ purchaseLocationName }}"> {{ purchaseLocationName }}
+                </label>
+              {{/each}}
+            </div>
+          </div>
         </div>
       </div>
-      <div class="col-md-3">
-        <legend><h4 class="text-muted"> Purchase Location </h4></legend>
-        <div class="radio">
-          {{#each purchaseLocationItems }}
-            <label class="radio">
-              <input type="radio" name="purchaseLocation" id="{{ purchaseLocationId }}" checked="{{ selectedPurchaseLocation ../purchaseLocation }}" 
-                     value="{{ purchaseLocationName }}"> {{ purchaseLocationName }}
-            </label>
-          {{/each}}
-        </div>
-      </div>
-
     </div>
   </fieldset>
 </template>

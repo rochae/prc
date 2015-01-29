@@ -1,9 +1,16 @@
 /* CSS declarations */
 /* -- col block helper. To be deleted -- */
 .card {
-    background-color: papayawhip;
-    border:            1px solid darkgray;
+    background-color:  #337ab7;
+    border:            1px solid white;
     margin-bottom:    24px;
+}
+
+.app-table-header {
+    background-color:  #337ab7;
+    border-left:            1px solid white;
+    padding-top:       5px;
+    padding-bottom:    5px;
 }
 
 .app-container {
@@ -98,3 +105,14 @@
         margin-left: 0;
     }
 }
+
+/* ---
+.equal, .equal > div[class*='col-'] {  
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex:1 1 auto;
+}
+--- */

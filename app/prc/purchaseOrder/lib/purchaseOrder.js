@@ -53,7 +53,9 @@ purchaseOrderFromTemplate = function(tpl) {
     else {
         purchaseOrder.market = tpl.find('#marketInternational').value;
     }
-    if (purchaseLocationOnshore.checked){
+    purchaseLocationOnshore = tpl.find('#purchaseLocationOnshore');
+    console.log('purchaseLocationOnshore: ', purchaseLocationOnshore)
+    if (purchaseLocationOnshore.checked) {
         purchaseOrder.purchaseLocation = purchaseLocationOnshore.value;
     }
     else {
