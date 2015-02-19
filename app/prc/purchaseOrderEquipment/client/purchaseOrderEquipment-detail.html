@@ -47,7 +47,7 @@
   </div>
   <div class="row">
     <div class="form-group col-md-12">
-      <label class="control-label" for="equipmentDescription"> Equipment Description </label>
+      <label class="control-label" for="equipmentDescription"> Equipment Note </label>
       <!--
       <textarea class="form-control" name="equipmentDescription" id="equipmentDescription" rows="3" 
                 placeholder="Enter Equipment Description" style="resize: none">{{ equipmentDescription }}</textarea>
@@ -81,12 +81,22 @@
              placeholder="Enter Equipment Documents Link" value="{{ documentsLink }}"/>
     </div>
   </div>
-  <!--
   <div class="row">
     <div class="form-group col-md-12">
-      <label class="control-label"> Attached Datasheet </label>
-      {{> upload_bootstrap formData=myFormData }}
+      <label class="control-label" for="datasheet"> Datasheet </label>
+        {{#if hasDatasheet }}
+          <div class="input-group">
+            <input class="form-control" type="text" name="datasheet" id="datasheet" 
+                   value="{{ hasDatasheet }}" readonly/>
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button" id="purchase-order-equipment-datasheet-remove">
+                <span class="text-danger"><span class="fa fa-remove"></span></span>
+              </button>
+            </span>
+          </div>
+        {{else}}
+          {{> upload_bootstrap formData=datasheetFromData }}
+        {{/if}}
     </div>
   </div>
-  -->
 </template>

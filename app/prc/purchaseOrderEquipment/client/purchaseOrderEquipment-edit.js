@@ -24,6 +24,7 @@ if (Meteor.isClient) {
             Session.set('editPurchaseOrderEquipment', false);
             Session.set('deletePurchaseOrderEquipment', false);
             Session.set('purchaserOrderEquipmentId', 0);
+            Session.set('purchaseOrderEquipmentDatasheet', null);
         },
     
         'click #purchase-order-equipment-save-btn': function(evt, tpl) {
@@ -38,6 +39,7 @@ if (Meteor.isClient) {
 
             purchaseOrderEquipment.equipmentId     = this.equipmentId;
             purchaseOrderEquipment.purchaseOrderId = this.purchaseOrderId;
+            purchaseOrderEquipment.datasheet       = Session.get('purchaseOrderEquipmentDatasheet');
 
             EquipmentCollection.update({_id : this.equipmentId}, equipment);
             PurchaseOrderEquipmentCollection.update({_id : this._id}, purchaseOrderEquipment)
@@ -66,6 +68,12 @@ if (Meteor.isClient) {
             PurchaseOrderEquipmentCollection.remove({_id : this._id});
             //console.log('Deleted PurchaseOrderEquipmentId: ', this._id);
             
+        },
+
+        'click #purchase-order-equipment-datasheet-remove': function(evt, tpl) {
+            //console.log('click #purchase-order-equipment-datasheet-remove');
+            Session.set('purchaseOrderEquipmentDatasheet', null);
+
         },
 
     });

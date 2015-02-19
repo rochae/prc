@@ -35,31 +35,24 @@ if (Meteor.isClient) {
             
             purchaseOrderEquipment.purchaseOrderId = this._id;
             purchaseOrderEquipment.equipmentId     = equipmentId;
+            purchaseOrderEquipment.datasheet       = Session.get('purchaseOrderEquipmentDatasheet');
             
             PurchaseOrderEquipmentCollection.insert(purchaseOrderEquipment);
-        }
+            //Meteor.call('purchaseOrderEquipmentDatasheetMove', purchaseOrderEquipment.purchaseOrderId, purchaseOrderEquipment.equipmentId, purchaseOrderEquipment.datasheet);
+        },
+
+        'click #purchase-order-equipment-datasheet-remove': function(evt, tpl) {
+            console.log('click #purchase-order-equipment-datasheet-remove');
+            //tpl.find('#datasheet').value = null;
+            console.log('this.datasheet: ', this.datasheet);
+            this.datasheet = null;
+            console.log('this: ', this);
+
+        },
 
     });
 
 } //: - Meteor.isClient
 
 
-/* --
-        'click #purchase-order-equipment-cancel-btn': function(evt, tpt) {
-            console.log('purchaseOrderEquipmentAdd - click #purchase-order-equipment-close-btn');
-            Session.set('addPurchaseOrderEquipment', false);
 
-            //EquipmentCollection.findOne({_id: this.equipmentId});
-        },
-        
-        'click #purchase-order-equipment-save-btn': function(evt, tpl) {
-            console.log('purchaseOrderEquipmentAdd - purchase-order-equipment-save-btn');
-            //e.preventDefault();
-            Session.set('addPurchaseOrderEquipment', false);
-            //purchaseOrder = new PurchaseOrder().fromTemplate(tpl);
-            
-            //console.log('purchaseOrderEquipmentAdd - purchaseOrder.equipmentItems: ', this.equipmentItems);
-            //purchaseOrder = new PurchaseOrder().fromTemplate(tpl);
-            //PurchaseOrderCollection.insert(purchaseOrder);
-        },
-        -- */

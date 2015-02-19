@@ -24,5 +24,6 @@ purchaseOrderEquipmentFromTemplate = function(tpl) {
     purchaseOrderEquipment.priceUnit              = tpl.find('#priceUnit').value;
     purchaseOrderEquipment.priceExtended          = tpl.find('#priceExtended').value;
     purchaseOrderEquipment.documentsLink          = tpl.find('#documentsLink').value;
+    //purchaseOrderEquipment.datasheet              = tpl.find('#datasheet').value;
     return purchaseOrderEquipment;
 };

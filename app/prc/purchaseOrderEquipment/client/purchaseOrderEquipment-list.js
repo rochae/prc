@@ -13,10 +13,12 @@ if (Meteor.isClient) {
             return EquipmentCollection.findOne({_id : this.equipmentId});
         },
 
+        /* --
         myFormData : function() {
             return { purchaseOrderId : this.purchaseOrderId,
                      purchaseOrderEquipmentId : this._id, };
         }
+        -- */
 
     });
 
