@@ -6,7 +6,7 @@ if (Meteor.isClient) {
     Template.purchaseOrderEquipmentList.helpers({
 
         purchaseOrderEquipmentItems: function() {
-            return PurchaseOrderEquipmentCollection.find({purchaseOrderId : this._id});
+            return PurchaseOrderEquipmentCollection.find({purchaseOrderId : this._id}, { sort: { item : 1 }});
         },
 
         equipmentItem: function() {
