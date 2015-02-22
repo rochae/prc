@@ -4,12 +4,16 @@ if (Meteor.isClient) {
     
     Template.purchaseOrderEquipmentDetail.helpers({
 
+        equipmentItem: function() {
+            return EquipmentCollection.findOne({_id : this.equipmentId}) || {};
+        },
+
         equipmentCategoryItems: function() {
-            return EquipmentCategoryCollection.find({}, { sort: { categoryName : 1 }});
+            return EquipmentCategoryCollection.find({}, { sort: { _name : 1 }});
         },
 
         selectedEquipmentCategory: function (categoryName) {
-            if (categoryName === this.categoryName) {
+            if (categoryName === this._name) {
                 return 'selected'
             }
         },
@@ -28,22 +32,21 @@ if (Meteor.isClient) {
             return Session.get('addPurchaseOrder');
         },
 
-        equipmentItem: function() {
-            //console.log('purchaseOrderEquipmentDetail - equipmentItem');
-            //console.log('equipmentItem: ', EquipmentCollection.findOne({_id : this.equipmentId}) || {});
-            return EquipmentCollection.findOne({_id : this.equipmentId}) || {};
+        datasheetName: function() {
+            datasheetId = Session.get('purchaseOrderEquipmentDatasheetId');
+            if (datasheetId) {
+                datasheet = DatasheetFSCollection.findOne({_id : datasheetId })
+                if (datasheet) {
+                    //console.log('datasheet: ', datasheet);
+                    return datasheet.name();
+                }  
+            }
+            return 'Drag and Drop Datasheet File into this Window'
         },
 
-        datasheetFromData : function() {
-            return { purchaseOrderId : this.purchaseOrderId || this._id,
-            };         //equipmentId : this.equipmentId || this._id, };
+        datasheetId: function() {
+            return Session.get('purchaseOrderEquipmentDatasheetId')
         },
-
-        hasDatasheet : function() {
-            //console.log('--> purchaseOrderEquipmentDatasheet', Session.get('purchaseOrderEquipmentDatasheet'));
-            return Session.get('purchaseOrderEquipmentDatasheet');
-            //return (Session.get('purchaseOrderEquipmentDatasheet') != null);
-        }
 
     });
 
@@ -51,5 +54,37 @@ if (Meteor.isClient) {
         //console.log('purchaseOrderEquipmentDetail.rendered - this.$(input)[0]:', this.$('input')[0])
         this.$('input')[0].focus() 
     };
+
+    // : - events
+    Template.purchaseOrderEquipmentDetail.events({
+
+        'change #files': function(event, temp) {
+            //console.log('files changed');
+            FS.Utility.eachFile(event, function(file) {
+                var fileObj = new FS.File(file);
+                //fileObj.metadata = { owner: Meteor.userId() };
+                DatasheetFSCollection.insert(fileObj);
+            });
+        },
+
+        'dropped #datasheet-dropzone': function(event, temp) {
+            //console.log('file droped');
+            FS.Utility.eachFile(event, function(file) {
+                var fileObj = new FS.File(file);
+                //fileObj.metadata = { owner: Meteor.userId() };
+                DatasheetFSCollection.insert(fileObj);
+                Session.set('purchaseOrderEquipmentDatasheetId', fileObj._id);
+                //console.log('-->inserted Object', fileObj._id);
+                //console.log('-->inserted Object', fileObj.name());
+            });
+        },
+
+        'click .btnRemove': function(event, temp) {
+            this.remove();
+        },
+
+    });
+
+
 
 } //: - Meteor.isClient

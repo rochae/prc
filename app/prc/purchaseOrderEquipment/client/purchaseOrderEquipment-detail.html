@@ -1,4 +1,5 @@
 <template name="purchaseOrderEquipmentDetail">
+  <fieldset class="dropzone" id="datasheet-dropzone">
   <div class="row">
     <div class="form-group col-md-4">
       <label class="control-label" for="item"> Item </label>
@@ -20,43 +21,39 @@
       </select>
     </div>
   </div> 
-  {{#with equipmentItem }}
   <div class="row">
     <div class="form-group col-md-12">
       <label class="control-label" for="equipmentName"> Equipment Name </label>
       <input class="form-control" type="text" id="equipmentName" placeholder="Enter Equipment Name"
-             value="{{ _name }}"/>
+             value="{{ equipmentItem._name }}"/>
     </div>
   </div>
   <div class="row">
     <div class="form-group col-md-5">
       <label class="control-label" for="equipmentTag"> Equipment Tag </label>
       <input class="form-control" type="text" id="equipmentTag" placeholder="Enter Equipment tag"
-             value="{{ ../equipmentTag }}"/>
+             value="{{ equipmentTag }}"/>
     </div>
     <div class="form-group col-md-7">
       <label class="control-label" for="equipmentCategory"> Equipment Category </label>
       <select class="form-control" name="equipmentCategory" id="equipmentCategory" 
-              value="{{ category }}">
-        <option value="{{ equipmentCategory }}" disabled selected> Select Equipment Category </option>
-        {{#each equipmentCategoryItems }}
-          <option value="{{ categoryName }}" {{ selectedEquipmentCategory ../category }}> {{ categoryName }} </option>
-        {{/each}}
+              value="{{ equipmentItem.category  }}">
+        {{#with equipmentItem }}
+          <option disabled selected> Select Equipment Category </option>
+          {{#each equipmentCategoryItems }}
+            <option value="{{ _name }}" {{ selectedEquipmentCategory ../category }}> {{ _name }} </option>
+          {{/each}}
+        {{/with}}
       </select>
     </div>
   </div>
   <div class="row">
     <div class="form-group col-md-12">
       <label class="control-label" for="equipmentDescription"> Equipment Note </label>
-      <!--
-      <textarea class="form-control" name="equipmentDescription" id="equipmentDescription" rows="3" 
-                placeholder="Enter Equipment Description" style="resize: none">{{ equipmentDescription }}</textarea>
-      -->
       <input class="form-control" type="text" id="equipmentDescription" 
-             placeholder="Enter Equipment Description" value="{{ _description }}"/>
+             placeholder="Enter Equipment Note" value="{{ _description }}"/>
     </div>
   </div>
-  {{/with}}
   <div class="row">
     <div class="form-group col-md-4">
       <label class="control-label" for="wbsNo"> WBS No. </label>
@@ -84,19 +81,21 @@
   <div class="row">
     <div class="form-group col-md-12">
       <label class="control-label" for="datasheet"> Datasheet </label>
-        {{#if hasDatasheet }}
-          <div class="input-group">
-            <input class="form-control" type="text" name="datasheet" id="datasheet" 
-                   value="{{ hasDatasheet }}" readonly/>
-            <span class="input-group-btn">
-              <button class="btn btn-default" type="button" id="purchase-order-equipment-datasheet-remove">
-                <span class="text-danger"><span class="fa fa-remove"></span></span>
-              </button>
-            </span>
-          </div>
-        {{else}}
-          {{> upload_bootstrap formData=datasheetFromData }}
-        {{/if}}
+      <div class="input-group">
+        <input class="form-control" type="text" name="datasheet" id="datasheet" 
+               value="{{ datasheetName }}" readonly/>
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button" id="purchase-order-equipment-datasheet-remove">
+            <span class="text-danger"><span class="fa fa-remove"></span></span>
+          </button>
+        </span>
+      </div>
     </div>
   </div>
+  </fieldset>
 </template>
+
+      <!--
+      <textarea class="form-control" name="equipmentDescription" id="equipmentDescription" rows="3" 
+                placeholder="Enter Equipment Description" style="resize: none">{{ equipmentDescription }}</textarea>
+      -->

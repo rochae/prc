@@ -13,12 +13,19 @@ if (Meteor.isClient) {
             return EquipmentCollection.findOne({_id : this.equipmentId});
         },
 
-        /* --
-        myFormData : function() {
-            return { purchaseOrderId : this.purchaseOrderId,
-                     purchaseOrderEquipmentId : this._id, };
-        }
-        -- */
+        datasheetName: function() {
+            datasheet = DatasheetFSCollection.findOne({_id : this.datasheetId })
+            if (datasheet) {
+                return datasheet.name();
+            }  
+        },
+
+        datasheetUrl: function() {
+            datasheet = DatasheetFSCollection.findOne({_id : this.datasheetId })
+            if (datasheet) {
+                return datasheet.url();
+            }  
+        },
 
     });
 

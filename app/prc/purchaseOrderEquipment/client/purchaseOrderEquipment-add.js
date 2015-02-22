@@ -21,6 +21,7 @@ if (Meteor.isClient) {
         'click .close, click #purchase-order-equipment-close-btn': function(evt, tpl) {
             //console.log('purchaseOrderEquipmentAdd - click .close, click #equipment-close-btn');
             Session.set('addPurchaseOrderEquipment', false);
+            Session.set('purchaseOrderEquipmentDatasheetId', null);
         },
     
         'click #purchase-order-equipment-save-btn': function(evt, tpl) {
@@ -35,19 +36,17 @@ if (Meteor.isClient) {
             
             purchaseOrderEquipment.purchaseOrderId = this._id;
             purchaseOrderEquipment.equipmentId     = equipmentId;
-            purchaseOrderEquipment.datasheet       = Session.get('purchaseOrderEquipmentDatasheet');
+            purchaseOrderEquipment.datasheetId     = Session.get('purchaseOrderEquipmentDatasheetId');
             
             PurchaseOrderEquipmentCollection.insert(purchaseOrderEquipment);
             //Meteor.call('purchaseOrderEquipmentDatasheetMove', purchaseOrderEquipment.purchaseOrderId, purchaseOrderEquipment.equipmentId, purchaseOrderEquipment.datasheet);
         },
 
         'click #purchase-order-equipment-datasheet-remove': function(evt, tpl) {
-            console.log('click #purchase-order-equipment-datasheet-remove');
-            //tpl.find('#datasheet').value = null;
-            console.log('this.datasheet: ', this.datasheet);
-            this.datasheet = null;
-            console.log('this: ', this);
-
+            console.log('add - removing datasheet');
+            DatasheetFSCollection.remove({_id : Session.get('purchaseOrderEquipmentDatasheetId')});
+            Session.set('purchaseOrderEquipmentDatasheetId', null);
+            tpl.$('input')[0].focus() 
         },
 
     });

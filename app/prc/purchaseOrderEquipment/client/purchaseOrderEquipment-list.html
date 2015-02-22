@@ -24,44 +24,38 @@
           <td colspan="1" class="col-md-1"><div class="text-right"> {{ priceExtended }} </div></td>
         </tr>
         <tr class="purchaseOrderEquipmentItem">
-          <td colspan="1">
+          <td colspan="4">
             <div class="row"> 
-              <div class="col-md-4">
+              <div class="col-md-3">
                 <dl>
                   <dt><div class="text-muted"> Equipment Tag </div></dt>
                   <dd> {{ equipmentTag }} </dd>
                 </dl>
               </div>
-              <div class="col-md-8">
+              <div class="col-md-4">
                 <dl>
                   <dt> <div class="text-muted"> Equipment Category </div></dt>
                   <dd> {{ equipmentItem.category }} </dd>
                 </dl>
               </div>
-            </div> 
-            <div class="row"> 
-              <div class="col-md-12">
-                <dl>
-                  <dt><div class="text-muted"> Equipment Note </div></dt>
-                  <dd> {{ equipmentItem._description }} </dd>
-                </dl>
-              </div>
-            </div>
-          </td>
-          <td colspan="3">
-            <div class="row"> 
-              <div class="col-md-12">
+              <div class="col-md-5">
                 <dl>
                   <dt> <div class="text-muted"> Document Link </div></dt>
                   <dd> {{ documentsLink }} </dd>
                 </dl>
               </div>
-            </div>
+            </div> 
             <div class="row"> 
-              <div class="col-md-12">
+              <div class="col-md-7">
+                <dl>
+                  <dt><div class="text-muted"> Equipment Note </div></dt>
+                  <dd> {{ equipmentItem._description }} </dd>
+                </dl>
+              </div>
+              <div class="col-md-5">
                 <dl>
                   <dt> <div class="text-muted"> Datasheet </div></dt>
-                  <dd> {{ datasheet }} </dd>
+                  <dd> <a href="{{datasheetUrl}}" target="_blank">{{ datasheetName }}</a> </dd>
                 </dl>
               </div>
             </div>

@@ -9,7 +9,7 @@ if (Meteor.isClient) {
             //console.log('purchaseOrderEquipmentHome - click #purchase-order-equipment-add-btn');
             Session.set('addPurchaseOrderEquipment', true);
             Session.set('purchaseOrderEquipmentId', 0);
-            Session.set('purchaseOrderEquipmentDatasheet', null);
+            Session.set('purchaseOrderEquipmentDatasheetId', null);
         },
 
         'dblclick tr.purchaseOrderEquipmentItem': function(evt, tpl) {
@@ -19,9 +19,9 @@ if (Meteor.isClient) {
             }
             Session.set('editPurchaseOrderEquipment', true);
             Session.set('purchaseOrderEquipmentId', this._id);
-            Session.set('purchaseOrderEquipmentDatasheet', this.datasheet);
+            Session.set('purchaseOrderEquipmentDatasheetId', this.datasheetId);
         },
 
-    }); 
+    });
 
 } //: - Meteor.isClient
