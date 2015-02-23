@@ -15,6 +15,14 @@ if (Meteor.isClient) {
 
     Session.setDefault('purchaseOrderCursor', 0);
 
+    /* --
+    incrementLimit = function(cursor, increment) {
+        inc = typeof incrementBy !== 'undefined' ? increment : 20;
+        newLimit = Session.get(cursor) + inc;
+        Session.set(cursor, newLimit);
+    };
+    -- */
+
     Meteor.autorun( function() {
         Meteor.subscribe('PurchaseOrderCollection', Session.get('purchaseOrderCursor'));
     });
