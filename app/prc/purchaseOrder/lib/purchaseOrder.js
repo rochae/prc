@@ -1,5 +1,25 @@
- // : - PurchaseOrders Collection
+ // : - PurchaseOrder Collection
 PurchaseOrderCollection = new Mongo.Collection("purchaseOrder");
+
+// : - Server 
+if (Meteor.isServer) {
+
+    Meteor.publish('PurchaseOrderCollection', function(purchaseOrderCursor) {
+        return PurchaseOrderCollection.find({}, {limit: 20, skip: purchaseOrderCursor});
+    });
+
+};
+
+// : - Client 
+if (Meteor.isClient) {
+
+    Session.setDefault('purchaseOrderCursor', 0);
+
+    Meteor.autorun( function() {
+        Meteor.subscribe('PurchaseOrderCollection', Session.get('purchaseOrderCursor'));
+    });
+
+};
 
 // : - PurchaseOrder Class
 PurchaseOrder = function() { 
@@ -19,6 +39,7 @@ PurchaseOrder = function() {
     this.weeksDeliverDrawing      = null;
 };
 
+// : - Helper Functions
 purchaseOrderFromTemplate = function(tpl) {
     purchaseOrder = new PurchaseOrder();
     purchaseOrder.purchaseOrderNo   = tpl.find('#purchaseOrderNo').value;
@@ -54,7 +75,6 @@ purchaseOrderFromTemplate = function(tpl) {
         purchaseOrder.market = tpl.find('#marketInternational').value;
     }
     purchaseLocationOnshore = tpl.find('#purchaseLocationOnshore');
-    console.log('purchaseLocationOnshore: ', purchaseLocationOnshore)
     if (purchaseLocationOnshore.checked) {
         purchaseOrder.purchaseLocation = purchaseLocationOnshore.value;
     }

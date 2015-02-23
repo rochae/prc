@@ -1,6 +1,29 @@
-// : - Purchase Order Equipment
+// : - PurchaseOrderEquipment Collection
 PurchaseOrderEquipmentCollection = new Mongo.Collection("purchaseOrderEquipment");
 
+// : - Server 
+if (Meteor.isServer) {
+
+    Meteor.publish('PurchaseOrderEquipmentCollection', function(purchaseOrderId) {
+        //console.log('purchaseOrderId: ', purchaseOrderId);
+        //console.log(PurchaseOrderEquipmentCollection.find({purchaseOrderId: purchaseOrderId}).fetch() || []);
+        return PurchaseOrderEquipmentCollection.find({purchaseOrderId: purchaseOrderId});
+    });
+
+}
+
+// : - Client 
+if (Meteor.isClient) {
+
+    Session.setDefault('purchaseOrderId', 0);
+
+    Meteor.autorun( function() {
+        Meteor.subscribe('PurchaseOrderEquipmentCollection', Session.get('purchaseOrderId'));
+    });
+
+}
+
+// : - PurchaseOrderEquipment Class
 PurchaseOrderEquipment = function() {
     this.purchaseOrderId = null;
     this.equipmentId     = null;
@@ -15,6 +38,7 @@ PurchaseOrderEquipment = function() {
     this.datasheetId     = null;
 };
 
+// : - Helper Functions
 purchaseOrderEquipmentFromTemplate = function(tpl) {
     purchaseOrderEquipment = new PurchaseOrderEquipment();
     purchaseOrderEquipment.item                   = tpl.find('#item').value;
@@ -27,17 +51,3 @@ purchaseOrderEquipmentFromTemplate = function(tpl) {
     purchaseOrderEquipment.documentsLink          = tpl.find('#documentsLink').value;
     return purchaseOrderEquipment;
 };
-
-
-// : - CollectionFS
-
-datasheetStore = new FS.Store.FileSystem("datasheet", {
-  path: "/Users/erocha/Development/prc/app/docs/datasheet", //optional, default is "/cfs/files" path within app container
-  //transformWrite: myTransformWriteFunction, //optional
-  //transformRead: myTransformReadFunction, //optional
-  //maxTries: 1 //optional, default 5
-});
-
-DatasheetFSCollection = new FS.Collection("datasheet", {
-  stores: [datasheetStore]
-});
