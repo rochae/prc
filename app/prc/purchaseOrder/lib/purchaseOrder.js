@@ -1,19 +1,19 @@
  // : - PurchaseOrder Collection
 PurchaseOrderCollection = new Mongo.Collection("purchaseOrder");
 
+purchaseOrderLimit = 10;
+
 // : - Server 
 if (Meteor.isServer) {
 
     Meteor.publish('PurchaseOrderCollection', function(purchaseOrderCursor) {
-        return PurchaseOrderCollection.find({}, {limit: 20, skip: purchaseOrderCursor});
+        return PurchaseOrderCollection.find({}, {limit: purchaseOrderLimit, skip: purchaseOrderCursor});
     });
 
 };
 
 // : - Client 
 if (Meteor.isClient) {
-
-    Session.setDefault('purchaseOrderCursor', 0);
 
     /* --
     incrementLimit = function(cursor, increment) {

@@ -30,10 +30,9 @@
           <span aria-hidden="true">&laquo;</span>
         </a>
       </li>
-      
-      <li><a href="#">1</a></li>
-      <li><a href="#">2</a></li>
-      <li><a href="#">3</a></li>
+      <li><a class="purchaseOrderPrevious"> Previous </a></li>
+      <li><a class="purchaseOrderNext"> Next </a></li>
+           <li><a href="#">3</a></li>
       <li><a href="#">4</a></li>
       <li class="disabled"><a>..</a></li>
       <li>
@@ -41,8 +40,15 @@
           <span aria-hidden="true">&raquo;</span>
         </a>
       </li>
+
     </ul>
     </div>
   </nav>
   -->
+  <nav>
+    <ul class="pager">
+      <li class="previous" id="purchaseOrderPrevious"><a href="#"><span aria-hidden="true">&larr;</span> Previous</a></li>
+      <li class="next" id="purchaseOrderNext"><a href="#">Next <span aria-hidden="true">&rarr;</span></a></li>
+    </ul>
+  </nav>
 </template>

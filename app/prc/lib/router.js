@@ -18,6 +18,7 @@ Router.route('/', function () {
   Session.set('editPurchaseOrder', false);
   Session.set('addPurchaseOrderEquipment',  false);
   Session.set('editPurchaseOrderEquipment', false);
+  Session.set('purchaseOrderCursor', 0);
 
   this.render('home', {
     data: function() {
