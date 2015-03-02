@@ -73,3 +73,9 @@ Router.route('/purchaseOrder/edit/:_id', function () {
   });
 
 });
+
+Router.route('/equipmentCategory', function () {
+
+  this.render('equipmentCategoryHome');
+
+});

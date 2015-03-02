@@ -22,4 +22,3 @@ if (Meteor.isClient) {
 EquipmentCategory = function() { 
     this._name = null;
 }
-
