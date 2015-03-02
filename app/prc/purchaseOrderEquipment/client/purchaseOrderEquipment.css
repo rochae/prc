@@ -1,15 +1,15 @@
 /* --  Purchase Order Equipment CSS  -- */
 
-.table > thead > tr > th {
+.app-table > thead > tr > th {
     vertical-align: middle;
  }
 
- .table-striped > tbody > tr:nth-child(4n+1) > td,
- .table-striped > tbody > tr:nth-child(4n+2) > td {
+ .app-table-striped > tbody > tr:nth-child(4n+1) > td,
+ .app-table-striped > tbody > tr:nth-child(4n+2) > td {
     background-color: #f9f9f9;
  }
 
- .table-striped > tbody > tr:nth-child(4n+3) > td,
- .table-striped > tbody > tr:nth-child(4n+4) > td {
+ .app-table-striped > tbody > tr:nth-child(4n+3) > td,
+ .app-table-striped > tbody > tr:nth-child(4n+4) > td {
     background-color: #ffffff;
  }

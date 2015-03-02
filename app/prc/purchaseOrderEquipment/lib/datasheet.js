@@ -1,6 +1,6 @@
 // : - Datasheet Storage
 datasheetStore = new FS.Store.FileSystem("datasheet", {
-  path: "~/Development/prc/app/docs/datasheet", //optional, default is "/cfs/files" path within app container
+  path: "~/docs/datasheet", //optional, default is "/cfs/files" path within app container
   //transformWrite: myTransformWriteFunction, //optional
   //transformRead: myTransformReadFunction, //optional
   //maxTries: 1 //optional, default 5
