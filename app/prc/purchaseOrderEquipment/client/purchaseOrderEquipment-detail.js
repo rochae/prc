@@ -4,7 +4,7 @@ if (Meteor.isClient) {
     
     Template.purchaseOrderEquipmentDetail.helpers({
 
-        equipmentItem: function() {
+        'equipmentItem': function() {
             return EquipmentCollection.findOne({_id : this.equipmentId}) || {};
         },
 
