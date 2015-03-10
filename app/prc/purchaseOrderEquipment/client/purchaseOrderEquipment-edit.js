@@ -67,7 +67,7 @@ if (Meteor.isClient) {
 
             purchaseOrderEquipment = PurchaseOrderEquipmentCollection.findOne({_id : this._id});
 
-            DatasheetFSCollection.remove({_id : urchaseOrderEquipment.datasheetId});
+            DatasheetFSCollection.remove({_id : purchaseOrderEquipment.datasheetId});
             EquipmentCollection.remove({_id : purchaseOrderEquipment.equipmentId});
             PurchaseOrderEquipmentCollection.remove({_id : this._id});
             
