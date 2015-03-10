@@ -25,7 +25,7 @@ if (Meteor.isClient) {
         },
     
         'click #purchase-order-equipment-save-btn': function(evt, tpl) {
-            evt.preventDefault();
+            //evt.preventDefault();
             //console.log('purchaseOrderEquipmentAdd - click #equipment-save-btn');
             Session.set('addPurchaseOrderEquipment', false);
 
@@ -39,7 +39,7 @@ if (Meteor.isClient) {
             purchaseOrderEquipment.datasheetId     = Session.get('purchaseOrderEquipmentDatasheetId');
             
             PurchaseOrderEquipmentCollection.insert(purchaseOrderEquipment);
-            //Meteor.call('purchaseOrderEquipmentDatasheetMove', purchaseOrderEquipment.purchaseOrderId, purchaseOrderEquipment.equipmentId, purchaseOrderEquipment.datasheet);
+            
         },
 
         'click #purchase-order-equipment-datasheet-remove': function(evt, tpl) {

@@ -33,7 +33,8 @@ Router.route('/purchaseOrder', function () {
   Session.set('editPurchaseOrder', false);
   Session.set('addPurchaseOrderEquipment',  false);
   Session.set('editPurchaseOrderEquipment', false);
-
+  Session.set('purchaseOrderId', 0);
+  
   this.render('purchaseOrderHome');
 
 });

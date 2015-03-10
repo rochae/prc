@@ -10,6 +10,9 @@ if (Meteor.isClient) {
         },
 
         equipmentItem: function() {
+            console.log('list: purchaseOrderId ', Session.get('purchaseOrderId'));
+            console.log('list:  this.equipmentId',  this.equipmentId);
+            //console.log('list: this', this);
             return EquipmentCollection.findOne({_id : this.equipmentId});
         },
 

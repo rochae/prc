@@ -5,9 +5,12 @@ EquipmentCollection = new Mongo.Collection("equipment");
 if (Meteor.isServer) {
 
     Meteor.publish('EquipmentCollection', function(purchaseOrderId) {
-        equipmentIdsCursor = PurchaseOrderEquipmentCollection.find({purchaseOrderId: purchaseOrderId}, {fields:{_id:0, equipmentId: 1}});
-        equipmentIds       = equipmentIdsCursor.map(function(i){ return i.equipmentId; });
-        return EquipmentCollection.find({_id: {$in: equipmentIds} });
+        //console.log('purchaseOrderId: ', purchaseOrderId);
+        //equipmentIdsCursor = PurchaseOrderEquipmentCollection.find({purchaseOrderId: purchaseOrderId}, {fields:{_id:0, equipmentId: 1}});
+        //equipmentIds       = equipmentIdsCursor.map(function(i){ return i.equipmentId; });
+        //console.log('equipmentIds', equipmentIds)
+        //return EquipmentCollection.find({_id: {$in: equipmentIds} });
+        return EquipmentCollection.find();
     });
 
 };
@@ -16,6 +19,8 @@ if (Meteor.isServer) {
 if (Meteor.isClient) {
 
     Meteor.autorun( function() {
+        console.log('autorun purchaseOrderId:', Session.get('purchaseOrderId'));
+        purchaseOrderId = Session.get('purchaseOrderId');
         Meteor.subscribe('EquipmentCollection', Session.get('purchaseOrderId'));
     });
 

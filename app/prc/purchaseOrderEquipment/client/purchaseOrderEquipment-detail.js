@@ -5,6 +5,13 @@ if (Meteor.isClient) {
     Template.purchaseOrderEquipmentDetail.helpers({
 
         'equipmentItem': function() {
+            console.log('list: purchaseOrderId ', Session.get('purchaseOrderId'));
+            console.log('this.equipmentId: ', this.equipmentId);
+            console.log('this._id: ', this._id);
+            console.log('this: ', this);
+            x = EquipmentCollection.findOne({_id : this.equipmentId});
+            console.log('x:', x);
+
             return EquipmentCollection.findOne({_id : this.equipmentId}) || {};
         },
 

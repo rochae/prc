@@ -18,7 +18,9 @@
           <td rowspan="2" colspan="1"><div class="text-center"> {{ item }} </div></td>
           <td rowspan="2" colspan="1"><div class="text-center"> {{ quantity }} </div></td>
           <td rowspan="2" colspan="1"><div class="text-center"> {{ unit }} </div></td>
-          <td colspan="1" class="col-md-6"> {{ equipmentItem._name }} </td>
+          {{#with equipmentItem }}
+          <td colspan="1" class="col-md-6"> {{ _name }} </td>
+          {{/with}}
           <td colspan="1"> {{ wbsNo }} </td>
           <td colspan="1"><div class="text-right">{{ priceUnit }} </div></td>
           <td colspan="1" class="col-md-1"><div class="text-right"> {{ priceExtended }} </div></td>

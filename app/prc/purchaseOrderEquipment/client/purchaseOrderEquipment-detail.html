@@ -21,29 +21,27 @@
       </select>
     </div>
   </div> 
+  {{#with equipmentItem }}
   <div class="row">
     <div class="form-group col-md-12">
       <label class="control-label" for="equipmentName"> Equipment Name </label>
       <input class="form-control" type="text" id="equipmentName" placeholder="Enter Equipment Name"
-             value="{{ equipmentItem._name }}"/>
+             value="{{ _name }}"/>
     </div>
   </div>
   <div class="row">
     <div class="form-group col-md-5">
       <label class="control-label" for="equipmentTag"> Equipment Tag </label>
       <input class="form-control" type="text" id="equipmentTag" placeholder="Enter Equipment tag"
-             value="{{ equipmentTag }}"/>
+             value="{{ ../equipmentTag }}"/>
     </div>
     <div class="form-group col-md-7">
       <label class="control-label" for="equipmentCategory"> Equipment Category </label>
-      <select class="form-control" name="equipmentCategory" id="equipmentCategory" 
-              value="{{ equipmentItem.category  }}">
-        {{#with equipmentItem }}
+      <select class="form-control" name="equipmentCategory" id="equipmentCategory" value="{{ category }}">
           <option disabled selected> Select Equipment Category </option>
           {{#each equipmentCategoryItems }}
             <option value="{{ _name }}" {{ selectedEquipmentCategory ../category }}> {{ _name }} </option>
           {{/each}}
-        {{/with}}
       </select>
     </div>
   </div>
@@ -54,6 +52,7 @@
              placeholder="Enter Equipment Note" value="{{ _description }}"/>
     </div>
   </div>
+  {{/with}}
   <div class="row">
     <div class="form-group col-md-4">
       <label class="control-label" for="wbsNo"> WBS No. </label>

@@ -15,10 +15,10 @@ DatasheetFSCollection = new FS.Collection("datasheet", {
 if (Meteor.isServer) {
 
     Meteor.publish('DatasheetFSCollection', function(purchaseOrderId) {
-      datasheetIdsCursor = PurchaseOrderEquipmentCollection.find({purchaseOrderId: purchaseOrderId}, {fields:{_id: 0, datasheetId: 1}});
-      datasheetIds       = datasheetIdsCursor.map(function(i){ return i.datasheetId; });
-      return DatasheetFSCollection.find({_id: {$in: datasheetIds} });
-      //return DatasheetFSCollection.find();
+      //datasheetIdsCursor = PurchaseOrderEquipmentCollection.find({purchaseOrderId: purchaseOrderId}, {fields:{_id: 0, datasheetId: 1}});
+      //datasheetIds       = datasheetIdsCursor.map(function(i){ return i.datasheetId; });
+      //return DatasheetFSCollection.find({_id: {$in: datasheetIds} });
+      return DatasheetFSCollection.find();
     });
 
 };
